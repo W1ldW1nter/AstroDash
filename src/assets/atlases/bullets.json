@@ -1,0 +1,1273 @@
+{
+    "frames":  {
+                   "blue_orb_l":  {
+                                      "frame":  {
+                                                    "x":  16,
+                                                    "y":  16,
+                                                    "w":  16,
+                                                    "h":  16
+                                                },
+                                      "rotated":  false,
+                                      "trimmed":  false,
+                                      "spriteSourceSize":  {
+                                                               "x":  0,
+                                                               "y":  0,
+                                                               "w":  16,
+                                                               "h":  16
+                                                           },
+                                      "sourceSize":  {
+                                                         "w":  16,
+                                                         "h":  16
+                                                     }
+                                  },
+                   "blue_orb_m":  {
+                                      "frame":  {
+                                                    "x":  33,
+                                                    "y":  17,
+                                                    "w":  14,
+                                                    "h":  14
+                                                },
+                                      "rotated":  false,
+                                      "trimmed":  false,
+                                      "spriteSourceSize":  {
+                                                               "x":  0,
+                                                               "y":  0,
+                                                               "w":  14,
+                                                               "h":  14
+                                                           },
+                                      "sourceSize":  {
+                                                         "w":  14,
+                                                         "h":  14
+                                                     }
+                                  },
+                   "blue_orb_s":  {
+                                      "frame":  {
+                                                    "x":  51,
+                                                    "y":  19,
+                                                    "w":  10,
+                                                    "h":  10
+                                                },
+                                      "rotated":  false,
+                                      "trimmed":  false,
+                                      "spriteSourceSize":  {
+                                                               "x":  0,
+                                                               "y":  0,
+                                                               "w":  10,
+                                                               "h":  10
+                                                           },
+                                      "sourceSize":  {
+                                                         "w":  10,
+                                                         "h":  10
+                                                     }
+                                  },
+                   "blue_capsule_l":  {
+                                          "frame":  {
+                                                        "x":  84,
+                                                        "y":  16,
+                                                        "w":  8,
+                                                        "h":  16
+                                                    },
+                                          "rotated":  false,
+                                          "trimmed":  false,
+                                          "spriteSourceSize":  {
+                                                                   "x":  0,
+                                                                   "y":  0,
+                                                                   "w":  8,
+                                                                   "h":  16
+                                                               },
+                                          "sourceSize":  {
+                                                             "w":  8,
+                                                             "h":  16
+                                                         }
+                                      },
+                   "blue_capsule_m":  {
+                                          "frame":  {
+                                                        "x":  101,
+                                                        "y":  17,
+                                                        "w":  6,
+                                                        "h":  14
+                                                    },
+                                          "rotated":  false,
+                                          "trimmed":  false,
+                                          "spriteSourceSize":  {
+                                                                   "x":  0,
+                                                                   "y":  0,
+                                                                   "w":  6,
+                                                                   "h":  14
+                                                               },
+                                          "sourceSize":  {
+                                                             "w":  6,
+                                                             "h":  14
+                                                         }
+                                      },
+                   "blue_capsule_s":  {
+                                          "frame":  {
+                                                        "x":  118,
+                                                        "y":  18,
+                                                        "w":  4,
+                                                        "h":  12
+                                                    },
+                                          "rotated":  false,
+                                          "trimmed":  false,
+                                          "spriteSourceSize":  {
+                                                                   "x":  0,
+                                                                   "y":  0,
+                                                                   "w":  4,
+                                                                   "h":  12
+                                                               },
+                                          "sourceSize":  {
+                                                             "w":  4,
+                                                             "h":  12
+                                                         }
+                                      },
+                   "blue_dart_l":  {
+                                       "frame":  {
+                                                     "x":  148,
+                                                     "y":  16,
+                                                     "w":  7,
+                                                     "h":  19
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  7,
+                                                                "h":  19
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  7,
+                                                          "h":  19
+                                                      }
+                                   },
+                   "blue_dart_m":  {
+                                       "frame":  {
+                                                     "x":  165,
+                                                     "y":  17,
+                                                     "w":  7,
+                                                     "h":  15
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  7,
+                                                                "h":  15
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  7,
+                                                          "h":  15
+                                                      }
+                                   },
+                   "blue_dart_s":  {
+                                       "frame":  {
+                                                     "x":  180,
+                                                     "y":  17,
+                                                     "w":  7,
+                                                     "h":  14
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  7,
+                                                                "h":  14
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  7,
+                                                          "h":  14
+                                                      }
+                                   },
+                   "green_orb_l":  {
+                                       "frame":  {
+                                                     "x":  16,
+                                                     "y":  48,
+                                                     "w":  16,
+                                                     "h":  16
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  16,
+                                                                "h":  16
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  16,
+                                                          "h":  16
+                                                      }
+                                   },
+                   "green_orb_m":  {
+                                       "frame":  {
+                                                     "x":  33,
+                                                     "y":  49,
+                                                     "w":  14,
+                                                     "h":  14
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  14,
+                                                                "h":  14
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  14,
+                                                          "h":  14
+                                                      }
+                                   },
+                   "green_orb_s":  {
+                                       "frame":  {
+                                                     "x":  51,
+                                                     "y":  51,
+                                                     "w":  10,
+                                                     "h":  10
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  10,
+                                                                "h":  10
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  10,
+                                                          "h":  10
+                                                      }
+                                   },
+                   "green_capsule_l":  {
+                                           "frame":  {
+                                                         "x":  84,
+                                                         "y":  48,
+                                                         "w":  8,
+                                                         "h":  16
+                                                     },
+                                           "rotated":  false,
+                                           "trimmed":  false,
+                                           "spriteSourceSize":  {
+                                                                    "x":  0,
+                                                                    "y":  0,
+                                                                    "w":  8,
+                                                                    "h":  16
+                                                                },
+                                           "sourceSize":  {
+                                                              "w":  8,
+                                                              "h":  16
+                                                          }
+                                       },
+                   "green_capsule_m":  {
+                                           "frame":  {
+                                                         "x":  101,
+                                                         "y":  49,
+                                                         "w":  6,
+                                                         "h":  14
+                                                     },
+                                           "rotated":  false,
+                                           "trimmed":  false,
+                                           "spriteSourceSize":  {
+                                                                    "x":  0,
+                                                                    "y":  0,
+                                                                    "w":  6,
+                                                                    "h":  14
+                                                                },
+                                           "sourceSize":  {
+                                                              "w":  6,
+                                                              "h":  14
+                                                          }
+                                       },
+                   "green_capsule_s":  {
+                                           "frame":  {
+                                                         "x":  118,
+                                                         "y":  50,
+                                                         "w":  4,
+                                                         "h":  12
+                                                     },
+                                           "rotated":  false,
+                                           "trimmed":  false,
+                                           "spriteSourceSize":  {
+                                                                    "x":  0,
+                                                                    "y":  0,
+                                                                    "w":  4,
+                                                                    "h":  12
+                                                                },
+                                           "sourceSize":  {
+                                                              "w":  4,
+                                                              "h":  12
+                                                          }
+                                       },
+                   "green_dart_l":  {
+                                        "frame":  {
+                                                      "x":  148,
+                                                      "y":  48,
+                                                      "w":  7,
+                                                      "h":  19
+                                                  },
+                                        "rotated":  false,
+                                        "trimmed":  false,
+                                        "spriteSourceSize":  {
+                                                                 "x":  0,
+                                                                 "y":  0,
+                                                                 "w":  7,
+                                                                 "h":  19
+                                                             },
+                                        "sourceSize":  {
+                                                           "w":  7,
+                                                           "h":  19
+                                                       }
+                                    },
+                   "green_dart_m":  {
+                                        "frame":  {
+                                                      "x":  165,
+                                                      "y":  49,
+                                                      "w":  7,
+                                                      "h":  15
+                                                  },
+                                        "rotated":  false,
+                                        "trimmed":  false,
+                                        "spriteSourceSize":  {
+                                                                 "x":  0,
+                                                                 "y":  0,
+                                                                 "w":  7,
+                                                                 "h":  15
+                                                             },
+                                        "sourceSize":  {
+                                                           "w":  7,
+                                                           "h":  15
+                                                       }
+                                    },
+                   "green_dart_s":  {
+                                        "frame":  {
+                                                      "x":  180,
+                                                      "y":  49,
+                                                      "w":  7,
+                                                      "h":  14
+                                                  },
+                                        "rotated":  false,
+                                        "trimmed":  false,
+                                        "spriteSourceSize":  {
+                                                                 "x":  0,
+                                                                 "y":  0,
+                                                                 "w":  7,
+                                                                 "h":  14
+                                                             },
+                                        "sourceSize":  {
+                                                           "w":  7,
+                                                           "h":  14
+                                                       }
+                                    },
+                   "red_orb_l":  {
+                                     "frame":  {
+                                                   "x":  16,
+                                                   "y":  80,
+                                                   "w":  16,
+                                                   "h":  16
+                                               },
+                                     "rotated":  false,
+                                     "trimmed":  false,
+                                     "spriteSourceSize":  {
+                                                              "x":  0,
+                                                              "y":  0,
+                                                              "w":  16,
+                                                              "h":  16
+                                                          },
+                                     "sourceSize":  {
+                                                        "w":  16,
+                                                        "h":  16
+                                                    }
+                                 },
+                   "red_orb_m":  {
+                                     "frame":  {
+                                                   "x":  33,
+                                                   "y":  81,
+                                                   "w":  14,
+                                                   "h":  14
+                                               },
+                                     "rotated":  false,
+                                     "trimmed":  false,
+                                     "spriteSourceSize":  {
+                                                              "x":  0,
+                                                              "y":  0,
+                                                              "w":  14,
+                                                              "h":  14
+                                                          },
+                                     "sourceSize":  {
+                                                        "w":  14,
+                                                        "h":  14
+                                                    }
+                                 },
+                   "red_orb_s":  {
+                                     "frame":  {
+                                                   "x":  51,
+                                                   "y":  83,
+                                                   "w":  10,
+                                                   "h":  10
+                                               },
+                                     "rotated":  false,
+                                     "trimmed":  false,
+                                     "spriteSourceSize":  {
+                                                              "x":  0,
+                                                              "y":  0,
+                                                              "w":  10,
+                                                              "h":  10
+                                                          },
+                                     "sourceSize":  {
+                                                        "w":  10,
+                                                        "h":  10
+                                                    }
+                                 },
+                   "red_capsule_l":  {
+                                         "frame":  {
+                                                       "x":  84,
+                                                       "y":  80,
+                                                       "w":  8,
+                                                       "h":  16
+                                                   },
+                                         "rotated":  false,
+                                         "trimmed":  false,
+                                         "spriteSourceSize":  {
+                                                                  "x":  0,
+                                                                  "y":  0,
+                                                                  "w":  8,
+                                                                  "h":  16
+                                                              },
+                                         "sourceSize":  {
+                                                            "w":  8,
+                                                            "h":  16
+                                                        }
+                                     },
+                   "red_capsule_m":  {
+                                         "frame":  {
+                                                       "x":  101,
+                                                       "y":  81,
+                                                       "w":  6,
+                                                       "h":  14
+                                                   },
+                                         "rotated":  false,
+                                         "trimmed":  false,
+                                         "spriteSourceSize":  {
+                                                                  "x":  0,
+                                                                  "y":  0,
+                                                                  "w":  6,
+                                                                  "h":  14
+                                                              },
+                                         "sourceSize":  {
+                                                            "w":  6,
+                                                            "h":  14
+                                                        }
+                                     },
+                   "red_capsule_s":  {
+                                         "frame":  {
+                                                       "x":  118,
+                                                       "y":  82,
+                                                       "w":  4,
+                                                       "h":  12
+                                                   },
+                                         "rotated":  false,
+                                         "trimmed":  false,
+                                         "spriteSourceSize":  {
+                                                                  "x":  0,
+                                                                  "y":  0,
+                                                                  "w":  4,
+                                                                  "h":  12
+                                                              },
+                                         "sourceSize":  {
+                                                            "w":  4,
+                                                            "h":  12
+                                                        }
+                                     },
+                   "red_dart_l":  {
+                                      "frame":  {
+                                                    "x":  148,
+                                                    "y":  80,
+                                                    "w":  7,
+                                                    "h":  19
+                                                },
+                                      "rotated":  false,
+                                      "trimmed":  false,
+                                      "spriteSourceSize":  {
+                                                               "x":  0,
+                                                               "y":  0,
+                                                               "w":  7,
+                                                               "h":  19
+                                                           },
+                                      "sourceSize":  {
+                                                         "w":  7,
+                                                         "h":  19
+                                                     }
+                                  },
+                   "red_dart_m":  {
+                                      "frame":  {
+                                                    "x":  165,
+                                                    "y":  81,
+                                                    "w":  7,
+                                                    "h":  15
+                                                },
+                                      "rotated":  false,
+                                      "trimmed":  false,
+                                      "spriteSourceSize":  {
+                                                               "x":  0,
+                                                               "y":  0,
+                                                               "w":  7,
+                                                               "h":  15
+                                                           },
+                                      "sourceSize":  {
+                                                         "w":  7,
+                                                         "h":  15
+                                                     }
+                                  },
+                   "red_dart_s":  {
+                                      "frame":  {
+                                                    "x":  180,
+                                                    "y":  81,
+                                                    "w":  7,
+                                                    "h":  14
+                                                },
+                                      "rotated":  false,
+                                      "trimmed":  false,
+                                      "spriteSourceSize":  {
+                                                               "x":  0,
+                                                               "y":  0,
+                                                               "w":  7,
+                                                               "h":  14
+                                                           },
+                                      "sourceSize":  {
+                                                         "w":  7,
+                                                         "h":  14
+                                                     }
+                                  },
+                   "yellow_orb_l":  {
+                                        "frame":  {
+                                                      "x":  16,
+                                                      "y":  112,
+                                                      "w":  16,
+                                                      "h":  16
+                                                  },
+                                        "rotated":  false,
+                                        "trimmed":  false,
+                                        "spriteSourceSize":  {
+                                                                 "x":  0,
+                                                                 "y":  0,
+                                                                 "w":  16,
+                                                                 "h":  16
+                                                             },
+                                        "sourceSize":  {
+                                                           "w":  16,
+                                                           "h":  16
+                                                       }
+                                    },
+                   "yellow_orb_m":  {
+                                        "frame":  {
+                                                      "x":  33,
+                                                      "y":  113,
+                                                      "w":  14,
+                                                      "h":  14
+                                                  },
+                                        "rotated":  false,
+                                        "trimmed":  false,
+                                        "spriteSourceSize":  {
+                                                                 "x":  0,
+                                                                 "y":  0,
+                                                                 "w":  14,
+                                                                 "h":  14
+                                                             },
+                                        "sourceSize":  {
+                                                           "w":  14,
+                                                           "h":  14
+                                                       }
+                                    },
+                   "yellow_orb_s":  {
+                                        "frame":  {
+                                                      "x":  51,
+                                                      "y":  115,
+                                                      "w":  10,
+                                                      "h":  10
+                                                  },
+                                        "rotated":  false,
+                                        "trimmed":  false,
+                                        "spriteSourceSize":  {
+                                                                 "x":  0,
+                                                                 "y":  0,
+                                                                 "w":  10,
+                                                                 "h":  10
+                                                             },
+                                        "sourceSize":  {
+                                                           "w":  10,
+                                                           "h":  10
+                                                       }
+                                    },
+                   "yellow_capsule_l":  {
+                                            "frame":  {
+                                                          "x":  84,
+                                                          "y":  112,
+                                                          "w":  8,
+                                                          "h":  16
+                                                      },
+                                            "rotated":  false,
+                                            "trimmed":  false,
+                                            "spriteSourceSize":  {
+                                                                     "x":  0,
+                                                                     "y":  0,
+                                                                     "w":  8,
+                                                                     "h":  16
+                                                                 },
+                                            "sourceSize":  {
+                                                               "w":  8,
+                                                               "h":  16
+                                                           }
+                                        },
+                   "yellow_capsule_m":  {
+                                            "frame":  {
+                                                          "x":  101,
+                                                          "y":  113,
+                                                          "w":  6,
+                                                          "h":  14
+                                                      },
+                                            "rotated":  false,
+                                            "trimmed":  false,
+                                            "spriteSourceSize":  {
+                                                                     "x":  0,
+                                                                     "y":  0,
+                                                                     "w":  6,
+                                                                     "h":  14
+                                                                 },
+                                            "sourceSize":  {
+                                                               "w":  6,
+                                                               "h":  14
+                                                           }
+                                        },
+                   "yellow_capsule_s":  {
+                                            "frame":  {
+                                                          "x":  118,
+                                                          "y":  114,
+                                                          "w":  4,
+                                                          "h":  12
+                                                      },
+                                            "rotated":  false,
+                                            "trimmed":  false,
+                                            "spriteSourceSize":  {
+                                                                     "x":  0,
+                                                                     "y":  0,
+                                                                     "w":  4,
+                                                                     "h":  12
+                                                                 },
+                                            "sourceSize":  {
+                                                               "w":  4,
+                                                               "h":  12
+                                                           }
+                                        },
+                   "yellow_dart_l":  {
+                                         "frame":  {
+                                                       "x":  148,
+                                                       "y":  112,
+                                                       "w":  7,
+                                                       "h":  19
+                                                   },
+                                         "rotated":  false,
+                                         "trimmed":  false,
+                                         "spriteSourceSize":  {
+                                                                  "x":  0,
+                                                                  "y":  0,
+                                                                  "w":  7,
+                                                                  "h":  19
+                                                              },
+                                         "sourceSize":  {
+                                                            "w":  7,
+                                                            "h":  19
+                                                        }
+                                     },
+                   "yellow_dart_m":  {
+                                         "frame":  {
+                                                       "x":  165,
+                                                       "y":  113,
+                                                       "w":  7,
+                                                       "h":  15
+                                                   },
+                                         "rotated":  false,
+                                         "trimmed":  false,
+                                         "spriteSourceSize":  {
+                                                                  "x":  0,
+                                                                  "y":  0,
+                                                                  "w":  7,
+                                                                  "h":  15
+                                                              },
+                                         "sourceSize":  {
+                                                            "w":  7,
+                                                            "h":  15
+                                                        }
+                                     },
+                   "yellow_dart_s":  {
+                                         "frame":  {
+                                                       "x":  180,
+                                                       "y":  113,
+                                                       "w":  7,
+                                                       "h":  14
+                                                   },
+                                         "rotated":  false,
+                                         "trimmed":  false,
+                                         "spriteSourceSize":  {
+                                                                  "x":  0,
+                                                                  "y":  0,
+                                                                  "w":  7,
+                                                                  "h":  14
+                                                              },
+                                         "sourceSize":  {
+                                                            "w":  7,
+                                                            "h":  14
+                                                        }
+                                     },
+                   "pink_orb_l":  {
+                                      "frame":  {
+                                                    "x":  16,
+                                                    "y":  144,
+                                                    "w":  16,
+                                                    "h":  16
+                                                },
+                                      "rotated":  false,
+                                      "trimmed":  false,
+                                      "spriteSourceSize":  {
+                                                               "x":  0,
+                                                               "y":  0,
+                                                               "w":  16,
+                                                               "h":  16
+                                                           },
+                                      "sourceSize":  {
+                                                         "w":  16,
+                                                         "h":  16
+                                                     }
+                                  },
+                   "pink_orb_m":  {
+                                      "frame":  {
+                                                    "x":  33,
+                                                    "y":  145,
+                                                    "w":  14,
+                                                    "h":  14
+                                                },
+                                      "rotated":  false,
+                                      "trimmed":  false,
+                                      "spriteSourceSize":  {
+                                                               "x":  0,
+                                                               "y":  0,
+                                                               "w":  14,
+                                                               "h":  14
+                                                           },
+                                      "sourceSize":  {
+                                                         "w":  14,
+                                                         "h":  14
+                                                     }
+                                  },
+                   "pink_orb_s":  {
+                                      "frame":  {
+                                                    "x":  51,
+                                                    "y":  147,
+                                                    "w":  10,
+                                                    "h":  10
+                                                },
+                                      "rotated":  false,
+                                      "trimmed":  false,
+                                      "spriteSourceSize":  {
+                                                               "x":  0,
+                                                               "y":  0,
+                                                               "w":  10,
+                                                               "h":  10
+                                                           },
+                                      "sourceSize":  {
+                                                         "w":  10,
+                                                         "h":  10
+                                                     }
+                                  },
+                   "pink_capsule_l":  {
+                                          "frame":  {
+                                                        "x":  84,
+                                                        "y":  144,
+                                                        "w":  8,
+                                                        "h":  16
+                                                    },
+                                          "rotated":  false,
+                                          "trimmed":  false,
+                                          "spriteSourceSize":  {
+                                                                   "x":  0,
+                                                                   "y":  0,
+                                                                   "w":  8,
+                                                                   "h":  16
+                                                               },
+                                          "sourceSize":  {
+                                                             "w":  8,
+                                                             "h":  16
+                                                         }
+                                      },
+                   "pink_capsule_m":  {
+                                          "frame":  {
+                                                        "x":  101,
+                                                        "y":  145,
+                                                        "w":  6,
+                                                        "h":  14
+                                                    },
+                                          "rotated":  false,
+                                          "trimmed":  false,
+                                          "spriteSourceSize":  {
+                                                                   "x":  0,
+                                                                   "y":  0,
+                                                                   "w":  6,
+                                                                   "h":  14
+                                                               },
+                                          "sourceSize":  {
+                                                             "w":  6,
+                                                             "h":  14
+                                                         }
+                                      },
+                   "pink_capsule_s":  {
+                                          "frame":  {
+                                                        "x":  118,
+                                                        "y":  146,
+                                                        "w":  4,
+                                                        "h":  12
+                                                    },
+                                          "rotated":  false,
+                                          "trimmed":  false,
+                                          "spriteSourceSize":  {
+                                                                   "x":  0,
+                                                                   "y":  0,
+                                                                   "w":  4,
+                                                                   "h":  12
+                                                               },
+                                          "sourceSize":  {
+                                                             "w":  4,
+                                                             "h":  12
+                                                         }
+                                      },
+                   "pink_dart_l":  {
+                                       "frame":  {
+                                                     "x":  148,
+                                                     "y":  144,
+                                                     "w":  7,
+                                                     "h":  19
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  7,
+                                                                "h":  19
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  7,
+                                                          "h":  19
+                                                      }
+                                   },
+                   "pink_dart_m":  {
+                                       "frame":  {
+                                                     "x":  165,
+                                                     "y":  145,
+                                                     "w":  7,
+                                                     "h":  15
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  7,
+                                                                "h":  15
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  7,
+                                                          "h":  15
+                                                      }
+                                   },
+                   "pink_dart_s":  {
+                                       "frame":  {
+                                                     "x":  180,
+                                                     "y":  145,
+                                                     "w":  7,
+                                                     "h":  14
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  7,
+                                                                "h":  14
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  7,
+                                                          "h":  14
+                                                      }
+                                   },
+                   "white_orb_l":  {
+                                       "frame":  {
+                                                     "x":  16,
+                                                     "y":  176,
+                                                     "w":  16,
+                                                     "h":  16
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  16,
+                                                                "h":  16
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  16,
+                                                          "h":  16
+                                                      }
+                                   },
+                   "white_orb_m":  {
+                                       "frame":  {
+                                                     "x":  33,
+                                                     "y":  177,
+                                                     "w":  14,
+                                                     "h":  14
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  14,
+                                                                "h":  14
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  14,
+                                                          "h":  14
+                                                      }
+                                   },
+                   "white_orb_s":  {
+                                       "frame":  {
+                                                     "x":  51,
+                                                     "y":  179,
+                                                     "w":  10,
+                                                     "h":  10
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  10,
+                                                                "h":  10
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  10,
+                                                          "h":  10
+                                                      }
+                                   },
+                   "white_capsule_l":  {
+                                           "frame":  {
+                                                         "x":  84,
+                                                         "y":  176,
+                                                         "w":  8,
+                                                         "h":  16
+                                                     },
+                                           "rotated":  false,
+                                           "trimmed":  false,
+                                           "spriteSourceSize":  {
+                                                                    "x":  0,
+                                                                    "y":  0,
+                                                                    "w":  8,
+                                                                    "h":  16
+                                                                },
+                                           "sourceSize":  {
+                                                              "w":  8,
+                                                              "h":  16
+                                                          }
+                                       },
+                   "white_capsule_m":  {
+                                           "frame":  {
+                                                         "x":  101,
+                                                         "y":  177,
+                                                         "w":  6,
+                                                         "h":  14
+                                                     },
+                                           "rotated":  false,
+                                           "trimmed":  false,
+                                           "spriteSourceSize":  {
+                                                                    "x":  0,
+                                                                    "y":  0,
+                                                                    "w":  6,
+                                                                    "h":  14
+                                                                },
+                                           "sourceSize":  {
+                                                              "w":  6,
+                                                              "h":  14
+                                                          }
+                                       },
+                   "white_capsule_s":  {
+                                           "frame":  {
+                                                         "x":  118,
+                                                         "y":  178,
+                                                         "w":  4,
+                                                         "h":  12
+                                                     },
+                                           "rotated":  false,
+                                           "trimmed":  false,
+                                           "spriteSourceSize":  {
+                                                                    "x":  0,
+                                                                    "y":  0,
+                                                                    "w":  4,
+                                                                    "h":  12
+                                                                },
+                                           "sourceSize":  {
+                                                              "w":  4,
+                                                              "h":  12
+                                                          }
+                                       },
+                   "white_dart_l":  {
+                                        "frame":  {
+                                                      "x":  148,
+                                                      "y":  176,
+                                                      "w":  7,
+                                                      "h":  19
+                                                  },
+                                        "rotated":  false,
+                                        "trimmed":  false,
+                                        "spriteSourceSize":  {
+                                                                 "x":  0,
+                                                                 "y":  0,
+                                                                 "w":  7,
+                                                                 "h":  19
+                                                             },
+                                        "sourceSize":  {
+                                                           "w":  7,
+                                                           "h":  19
+                                                       }
+                                    },
+                   "white_dart_m":  {
+                                        "frame":  {
+                                                      "x":  165,
+                                                      "y":  177,
+                                                      "w":  7,
+                                                      "h":  15
+                                                  },
+                                        "rotated":  false,
+                                        "trimmed":  false,
+                                        "spriteSourceSize":  {
+                                                                 "x":  0,
+                                                                 "y":  0,
+                                                                 "w":  7,
+                                                                 "h":  15
+                                                             },
+                                        "sourceSize":  {
+                                                           "w":  7,
+                                                           "h":  15
+                                                       }
+                                    },
+                   "white_dart_s":  {
+                                        "frame":  {
+                                                      "x":  180,
+                                                      "y":  177,
+                                                      "w":  7,
+                                                      "h":  14
+                                                  },
+                                        "rotated":  false,
+                                        "trimmed":  false,
+                                        "spriteSourceSize":  {
+                                                                 "x":  0,
+                                                                 "y":  0,
+                                                                 "w":  7,
+                                                                 "h":  14
+                                                             },
+                                        "sourceSize":  {
+                                                           "w":  7,
+                                                           "h":  14
+                                                       }
+                                    },
+                   "beam_charge_0":  {
+                                         "frame":  {
+                                                       "x":  216,
+                                                       "y":  18,
+                                                       "w":  31,
+                                                       "h":  30
+                                                   },
+                                         "rotated":  false,
+                                         "trimmed":  true,
+                                         "spriteSourceSize":  {
+                                                                  "x":  0,
+                                                                  "y":  0,
+                                                                  "w":  31,
+                                                                  "h":  30
+                                                              },
+                                         "sourceSize":  {
+                                                            "w":  31,
+                                                            "h":  30
+                                                        }
+                                     },
+                   "beam_charge_1":  {
+                                         "frame":  {
+                                                       "x":  217,
+                                                       "y":  50,
+                                                       "w":  31,
+                                                       "h":  30
+                                                   },
+                                         "rotated":  false,
+                                         "trimmed":  true,
+                                         "spriteSourceSize":  {
+                                                                  "x":  0,
+                                                                  "y":  0,
+                                                                  "w":  31,
+                                                                  "h":  30
+                                                              },
+                                         "sourceSize":  {
+                                                            "w":  31,
+                                                            "h":  30
+                                                        }
+                                     },
+                   "beam_charge_2":  {
+                                         "frame":  {
+                                                       "x":  216,
+                                                       "y":  82,
+                                                       "w":  31,
+                                                       "h":  30
+                                                   },
+                                         "rotated":  false,
+                                         "trimmed":  true,
+                                         "spriteSourceSize":  {
+                                                                  "x":  0,
+                                                                  "y":  0,
+                                                                  "w":  31,
+                                                                  "h":  30
+                                                              },
+                                         "sourceSize":  {
+                                                            "w":  31,
+                                                            "h":  30
+                                                        }
+                                     },
+                   "beam_head_0":  {
+                                       "frame":  {
+                                                     "x":  208,
+                                                     "y":  159,
+                                                     "w":  31,
+                                                     "h":  18
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  31,
+                                                                "h":  18
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  31,
+                                                          "h":  18
+                                                      }
+                                   },
+                   "beam_body_0":  {
+                                       "frame":  {
+                                                     "x":  243,
+                                                     "y":  160,
+                                                     "w":  11,
+                                                     "h":  16
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  11,
+                                                                "h":  16
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  11,
+                                                          "h":  16
+                                                      }
+                                   },
+                   "beam_head_1":  {
+                                       "frame":  {
+                                                     "x":  208,
+                                                     "y":  191,
+                                                     "w":  31,
+                                                     "h":  18
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  31,
+                                                                "h":  18
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  31,
+                                                          "h":  18
+                                                      }
+                                   },
+                   "beam_body_1":  {
+                                       "frame":  {
+                                                     "x":  243,
+                                                     "y":  192,
+                                                     "w":  11,
+                                                     "h":  16
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  11,
+                                                                "h":  16
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  11,
+                                                          "h":  16
+                                                      }
+                                   },
+                   "beam_head_2":  {
+                                       "frame":  {
+                                                     "x":  208,
+                                                     "y":  223,
+                                                     "w":  31,
+                                                     "h":  18
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  31,
+                                                                "h":  18
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  31,
+                                                          "h":  18
+                                                      }
+                                   },
+                   "beam_body_2":  {
+                                       "frame":  {
+                                                     "x":  243,
+                                                     "y":  224,
+                                                     "w":  11,
+                                                     "h":  16
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  11,
+                                                                "h":  16
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  11,
+                                                          "h":  16
+                                                      }
+                                   }
+               },
+    "meta":  {
+                 "image":  "Bullets-0001.png",
+                 "size":  {
+                              "w":  256,
+                              "h":  256
+                          },
+                 "scale":  "1",
+                 "generator":  "tools/slice-sprites.ps1"
+             }
+}

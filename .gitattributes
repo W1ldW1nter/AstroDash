@@ -1,0 +1,7 @@
+# Normalize line endings; keep binary art untouched.
+* text=auto
+*.png binary
+*.jpg binary
+*.ogg binary
+*.mp3 binary
+*.wav binary

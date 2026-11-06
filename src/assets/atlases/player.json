@@ -1,0 +1,253 @@
+{
+    "frames":  {
+                   "fighter_silver":  {
+                                          "frame":  {
+                                                        "x":  12,
+                                                        "y":  22,
+                                                        "w":  39,
+                                                        "h":  41
+                                                    },
+                                          "rotated":  false,
+                                          "trimmed":  false,
+                                          "spriteSourceSize":  {
+                                                                   "x":  0,
+                                                                   "y":  0,
+                                                                   "w":  39,
+                                                                   "h":  41
+                                                               },
+                                          "sourceSize":  {
+                                                             "w":  39,
+                                                             "h":  41
+                                                         }
+                                      },
+                   "fighter_green":  {
+                                         "frame":  {
+                                                       "x":  76,
+                                                       "y":  22,
+                                                       "w":  39,
+                                                       "h":  41
+                                                   },
+                                         "rotated":  false,
+                                         "trimmed":  false,
+                                         "spriteSourceSize":  {
+                                                                  "x":  0,
+                                                                  "y":  0,
+                                                                  "w":  39,
+                                                                  "h":  41
+                                                              },
+                                         "sourceSize":  {
+                                                            "w":  39,
+                                                            "h":  41
+                                                        }
+                                     },
+                   "fighter_blue":  {
+                                        "frame":  {
+                                                      "x":  140,
+                                                      "y":  22,
+                                                      "w":  39,
+                                                      "h":  41
+                                                  },
+                                        "rotated":  false,
+                                        "trimmed":  false,
+                                        "spriteSourceSize":  {
+                                                                 "x":  0,
+                                                                 "y":  0,
+                                                                 "w":  39,
+                                                                 "h":  41
+                                                             },
+                                        "sourceSize":  {
+                                                           "w":  39,
+                                                           "h":  41
+                                                       }
+                                    },
+                   "fighter_orange":  {
+                                          "frame":  {
+                                                        "x":  204,
+                                                        "y":  22,
+                                                        "w":  39,
+                                                        "h":  41
+                                                    },
+                                          "rotated":  false,
+                                          "trimmed":  false,
+                                          "spriteSourceSize":  {
+                                                                   "x":  0,
+                                                                   "y":  0,
+                                                                   "w":  39,
+                                                                   "h":  41
+                                                               },
+                                          "sourceSize":  {
+                                                             "w":  39,
+                                                             "h":  41
+                                                         }
+                                      },
+                   "fighter_dark":  {
+                                        "frame":  {
+                                                      "x":  77,
+                                                      "y":  71,
+                                                      "w":  39,
+                                                      "h":  41
+                                                  },
+                                        "rotated":  false,
+                                        "trimmed":  false,
+                                        "spriteSourceSize":  {
+                                                                 "x":  0,
+                                                                 "y":  0,
+                                                                 "w":  39,
+                                                                 "h":  41
+                                                             },
+                                        "sourceSize":  {
+                                                           "w":  39,
+                                                           "h":  41
+                                                       }
+                                    },
+                   "fighter_red":  {
+                                       "frame":  {
+                                                     "x":  141,
+                                                     "y":  71,
+                                                     "w":  39,
+                                                     "h":  41
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  39,
+                                                                "h":  41
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  39,
+                                                          "h":  41
+                                                      }
+                                   },
+                   "gunship_dark":  {
+                                        "frame":  {
+                                                      "x":  11,
+                                                      "y":  132,
+                                                      "w":  58,
+                                                      "h":  44
+                                                  },
+                                        "rotated":  false,
+                                        "trimmed":  false,
+                                        "spriteSourceSize":  {
+                                                                 "x":  0,
+                                                                 "y":  0,
+                                                                 "w":  58,
+                                                                 "h":  44
+                                                             },
+                                        "sourceSize":  {
+                                                           "w":  58,
+                                                           "h":  44
+                                                       }
+                                    },
+                   "gunship_green":  {
+                                         "frame":  {
+                                                       "x":  99,
+                                                       "y":  132,
+                                                       "w":  58,
+                                                       "h":  44
+                                                   },
+                                         "rotated":  false,
+                                         "trimmed":  false,
+                                         "spriteSourceSize":  {
+                                                                  "x":  0,
+                                                                  "y":  0,
+                                                                  "w":  58,
+                                                                  "h":  44
+                                                              },
+                                         "sourceSize":  {
+                                                            "w":  58,
+                                                            "h":  44
+                                                        }
+                                     },
+                   "gunship_blue":  {
+                                        "frame":  {
+                                                      "x":  187,
+                                                      "y":  132,
+                                                      "w":  58,
+                                                      "h":  44
+                                                  },
+                                        "rotated":  false,
+                                        "trimmed":  false,
+                                        "spriteSourceSize":  {
+                                                                 "x":  0,
+                                                                 "y":  0,
+                                                                 "w":  58,
+                                                                 "h":  44
+                                                             },
+                                        "sourceSize":  {
+                                                           "w":  58,
+                                                           "h":  44
+                                                       }
+                                    },
+                   "gunship_silver":  {
+                                          "frame":  {
+                                                        "x":  11,
+                                                        "y":  196,
+                                                        "w":  58,
+                                                        "h":  44
+                                                    },
+                                          "rotated":  false,
+                                          "trimmed":  false,
+                                          "spriteSourceSize":  {
+                                                                   "x":  0,
+                                                                   "y":  0,
+                                                                   "w":  58,
+                                                                   "h":  44
+                                                               },
+                                          "sourceSize":  {
+                                                             "w":  58,
+                                                             "h":  44
+                                                         }
+                                      },
+                   "gunship_orange":  {
+                                          "frame":  {
+                                                        "x":  91,
+                                                        "y":  196,
+                                                        "w":  58,
+                                                        "h":  44
+                                                    },
+                                          "rotated":  false,
+                                          "trimmed":  false,
+                                          "spriteSourceSize":  {
+                                                                   "x":  0,
+                                                                   "y":  0,
+                                                                   "w":  58,
+                                                                   "h":  44
+                                                               },
+                                          "sourceSize":  {
+                                                             "w":  58,
+                                                             "h":  44
+                                                         }
+                                      },
+                   "gunship_red":  {
+                                       "frame":  {
+                                                     "x":  187,
+                                                     "y":  196,
+                                                     "w":  58,
+                                                     "h":  44
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  58,
+                                                                "h":  44
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  58,
+                                                          "h":  44
+                                                      }
+                                   }
+               },
+    "meta":  {
+                 "image":  "SpaceShips_Player-0001.png",
+                 "size":  {
+                              "w":  256,
+                              "h":  256
+                          },
+                 "scale":  "1",
+                 "generator":  "tools/slice-sprites.ps1"
+             }
+}

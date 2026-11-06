@@ -1,0 +1,573 @@
+{
+    "frames":  {
+                   "orange_0":  {
+                                    "frame":  {
+                                                  "x":  19,
+                                                  "y":  51,
+                                                  "w":  10,
+                                                  "h":  10
+                                              },
+                                    "rotated":  false,
+                                    "trimmed":  true,
+                                    "spriteSourceSize":  {
+                                                             "x":  21,
+                                                             "y":  23,
+                                                             "w":  10,
+                                                             "h":  10
+                                                         },
+                                    "sourceSize":  {
+                                                       "w":  52,
+                                                       "h":  57
+                                                   }
+                                },
+                   "orange_1":  {
+                                    "frame":  {
+                                                  "x":  48,
+                                                  "y":  48,
+                                                  "w":  17,
+                                                  "h":  16
+                                              },
+                                    "rotated":  false,
+                                    "trimmed":  true,
+                                    "spriteSourceSize":  {
+                                                             "x":  17,
+                                                             "y":  20,
+                                                             "w":  17,
+                                                             "h":  16
+                                                         },
+                                    "sourceSize":  {
+                                                       "w":  52,
+                                                       "h":  57
+                                                   }
+                                },
+                   "orange_2":  {
+                                    "frame":  {
+                                                  "x":  77,
+                                                  "y":  29,
+                                                  "w":  50,
+                                                  "h":  47
+                                              },
+                                    "rotated":  false,
+                                    "trimmed":  true,
+                                    "spriteSourceSize":  {
+                                                             "x":  1,
+                                                             "y":  5,
+                                                             "w":  50,
+                                                             "h":  47
+                                                         },
+                                    "sourceSize":  {
+                                                       "w":  52,
+                                                       "h":  57
+                                                   }
+                                },
+                   "orange_3":  {
+                                    "frame":  {
+                                                  "x":  146,
+                                                  "y":  27,
+                                                  "w":  48,
+                                                  "h":  51
+                                              },
+                                    "rotated":  false,
+                                    "trimmed":  true,
+                                    "spriteSourceSize":  {
+                                                             "x":  2,
+                                                             "y":  3,
+                                                             "w":  48,
+                                                             "h":  51
+                                                         },
+                                    "sourceSize":  {
+                                                       "w":  52,
+                                                       "h":  57
+                                                   }
+                                },
+                   "orange_4":  {
+                                    "frame":  {
+                                                  "x":  213,
+                                                  "y":  25,
+                                                  "w":  52,
+                                                  "h":  57
+                                              },
+                                    "rotated":  false,
+                                    "trimmed":  true,
+                                    "spriteSourceSize":  {
+                                                             "x":  0,
+                                                             "y":  0,
+                                                             "w":  52,
+                                                             "h":  57
+                                                         },
+                                    "sourceSize":  {
+                                                       "w":  52,
+                                                       "h":  57
+                                                   }
+                                },
+                   "orange_5":  {
+                                    "frame":  {
+                                                  "x":  286,
+                                                  "y":  42,
+                                                  "w":  32,
+                                                  "h":  29
+                                              },
+                                    "rotated":  false,
+                                    "trimmed":  true,
+                                    "spriteSourceSize":  {
+                                                             "x":  10,
+                                                             "y":  14,
+                                                             "w":  32,
+                                                             "h":  29
+                                                         },
+                                    "sourceSize":  {
+                                                       "w":  52,
+                                                       "h":  57
+                                                   }
+                                },
+                   "orange_6":  {
+                                    "frame":  {
+                                                  "x":  337,
+                                                  "y":  41,
+                                                  "w":  31,
+                                                  "h":  30
+                                              },
+                                    "rotated":  false,
+                                    "trimmed":  true,
+                                    "spriteSourceSize":  {
+                                                             "x":  10,
+                                                             "y":  13,
+                                                             "w":  31,
+                                                             "h":  30
+                                                         },
+                                    "sourceSize":  {
+                                                       "w":  52,
+                                                       "h":  57
+                                                   }
+                                },
+                   "teal_0":  {
+                                  "frame":  {
+                                                "x":  19,
+                                                "y":  120,
+                                                "w":  10,
+                                                "h":  10
+                                            },
+                                  "rotated":  false,
+                                  "trimmed":  true,
+                                  "spriteSourceSize":  {
+                                                           "x":  21,
+                                                           "y":  23,
+                                                           "w":  10,
+                                                           "h":  10
+                                                       },
+                                  "sourceSize":  {
+                                                     "w":  52,
+                                                     "h":  57
+                                                 }
+                              },
+                   "teal_1":  {
+                                  "frame":  {
+                                                "x":  48,
+                                                "y":  117,
+                                                "w":  17,
+                                                "h":  16
+                                            },
+                                  "rotated":  false,
+                                  "trimmed":  true,
+                                  "spriteSourceSize":  {
+                                                           "x":  17,
+                                                           "y":  20,
+                                                           "w":  17,
+                                                           "h":  16
+                                                       },
+                                  "sourceSize":  {
+                                                     "w":  52,
+                                                     "h":  57
+                                                 }
+                              },
+                   "teal_2":  {
+                                  "frame":  {
+                                                "x":  77,
+                                                "y":  98,
+                                                "w":  50,
+                                                "h":  47
+                                            },
+                                  "rotated":  false,
+                                  "trimmed":  true,
+                                  "spriteSourceSize":  {
+                                                           "x":  1,
+                                                           "y":  5,
+                                                           "w":  50,
+                                                           "h":  47
+                                                       },
+                                  "sourceSize":  {
+                                                     "w":  52,
+                                                     "h":  57
+                                                 }
+                              },
+                   "teal_3":  {
+                                  "frame":  {
+                                                "x":  146,
+                                                "y":  96,
+                                                "w":  48,
+                                                "h":  51
+                                            },
+                                  "rotated":  false,
+                                  "trimmed":  true,
+                                  "spriteSourceSize":  {
+                                                           "x":  2,
+                                                           "y":  3,
+                                                           "w":  48,
+                                                           "h":  51
+                                                       },
+                                  "sourceSize":  {
+                                                     "w":  52,
+                                                     "h":  57
+                                                 }
+                              },
+                   "teal_4":  {
+                                  "frame":  {
+                                                "x":  213,
+                                                "y":  94,
+                                                "w":  52,
+                                                "h":  57
+                                            },
+                                  "rotated":  false,
+                                  "trimmed":  true,
+                                  "spriteSourceSize":  {
+                                                           "x":  0,
+                                                           "y":  0,
+                                                           "w":  52,
+                                                           "h":  57
+                                                       },
+                                  "sourceSize":  {
+                                                     "w":  52,
+                                                     "h":  57
+                                                 }
+                              },
+                   "teal_5":  {
+                                  "frame":  {
+                                                "x":  286,
+                                                "y":  111,
+                                                "w":  32,
+                                                "h":  29
+                                            },
+                                  "rotated":  false,
+                                  "trimmed":  true,
+                                  "spriteSourceSize":  {
+                                                           "x":  10,
+                                                           "y":  14,
+                                                           "w":  32,
+                                                           "h":  29
+                                                       },
+                                  "sourceSize":  {
+                                                     "w":  52,
+                                                     "h":  57
+                                                 }
+                              },
+                   "teal_6":  {
+                                  "frame":  {
+                                                "x":  337,
+                                                "y":  110,
+                                                "w":  31,
+                                                "h":  30
+                                            },
+                                  "rotated":  false,
+                                  "trimmed":  true,
+                                  "spriteSourceSize":  {
+                                                           "x":  10,
+                                                           "y":  13,
+                                                           "w":  31,
+                                                           "h":  30
+                                                       },
+                                  "sourceSize":  {
+                                                     "w":  52,
+                                                     "h":  57
+                                                 }
+                              },
+                   "pink_0":  {
+                                  "frame":  {
+                                                "x":  19,
+                                                "y":  197,
+                                                "w":  10,
+                                                "h":  10
+                                            },
+                                  "rotated":  false,
+                                  "trimmed":  true,
+                                  "spriteSourceSize":  {
+                                                           "x":  21,
+                                                           "y":  23,
+                                                           "w":  10,
+                                                           "h":  10
+                                                       },
+                                  "sourceSize":  {
+                                                     "w":  52,
+                                                     "h":  57
+                                                 }
+                              },
+                   "pink_1":  {
+                                  "frame":  {
+                                                "x":  48,
+                                                "y":  194,
+                                                "w":  17,
+                                                "h":  16
+                                            },
+                                  "rotated":  false,
+                                  "trimmed":  true,
+                                  "spriteSourceSize":  {
+                                                           "x":  17,
+                                                           "y":  20,
+                                                           "w":  17,
+                                                           "h":  16
+                                                       },
+                                  "sourceSize":  {
+                                                     "w":  52,
+                                                     "h":  57
+                                                 }
+                              },
+                   "pink_2":  {
+                                  "frame":  {
+                                                "x":  77,
+                                                "y":  175,
+                                                "w":  50,
+                                                "h":  47
+                                            },
+                                  "rotated":  false,
+                                  "trimmed":  true,
+                                  "spriteSourceSize":  {
+                                                           "x":  1,
+                                                           "y":  5,
+                                                           "w":  50,
+                                                           "h":  47
+                                                       },
+                                  "sourceSize":  {
+                                                     "w":  52,
+                                                     "h":  57
+                                                 }
+                              },
+                   "pink_3":  {
+                                  "frame":  {
+                                                "x":  146,
+                                                "y":  173,
+                                                "w":  48,
+                                                "h":  51
+                                            },
+                                  "rotated":  false,
+                                  "trimmed":  true,
+                                  "spriteSourceSize":  {
+                                                           "x":  2,
+                                                           "y":  3,
+                                                           "w":  48,
+                                                           "h":  51
+                                                       },
+                                  "sourceSize":  {
+                                                     "w":  52,
+                                                     "h":  57
+                                                 }
+                              },
+                   "pink_4":  {
+                                  "frame":  {
+                                                "x":  213,
+                                                "y":  171,
+                                                "w":  52,
+                                                "h":  57
+                                            },
+                                  "rotated":  false,
+                                  "trimmed":  true,
+                                  "spriteSourceSize":  {
+                                                           "x":  0,
+                                                           "y":  0,
+                                                           "w":  52,
+                                                           "h":  57
+                                                       },
+                                  "sourceSize":  {
+                                                     "w":  52,
+                                                     "h":  57
+                                                 }
+                              },
+                   "pink_5":  {
+                                  "frame":  {
+                                                "x":  286,
+                                                "y":  188,
+                                                "w":  32,
+                                                "h":  29
+                                            },
+                                  "rotated":  false,
+                                  "trimmed":  true,
+                                  "spriteSourceSize":  {
+                                                           "x":  10,
+                                                           "y":  14,
+                                                           "w":  32,
+                                                           "h":  29
+                                                       },
+                                  "sourceSize":  {
+                                                     "w":  52,
+                                                     "h":  57
+                                                 }
+                              },
+                   "pink_6":  {
+                                  "frame":  {
+                                                "x":  337,
+                                                "y":  187,
+                                                "w":  31,
+                                                "h":  30
+                                            },
+                                  "rotated":  false,
+                                  "trimmed":  true,
+                                  "spriteSourceSize":  {
+                                                           "x":  10,
+                                                           "y":  13,
+                                                           "w":  31,
+                                                           "h":  30
+                                                       },
+                                  "sourceSize":  {
+                                                     "w":  52,
+                                                     "h":  57
+                                                 }
+                              },
+                   "red_0":  {
+                                 "frame":  {
+                                               "x":  19,
+                                               "y":  276,
+                                               "w":  10,
+                                               "h":  10
+                                           },
+                                 "rotated":  false,
+                                 "trimmed":  true,
+                                 "spriteSourceSize":  {
+                                                          "x":  21,
+                                                          "y":  23,
+                                                          "w":  10,
+                                                          "h":  10
+                                                      },
+                                 "sourceSize":  {
+                                                    "w":  52,
+                                                    "h":  57
+                                                }
+                             },
+                   "red_1":  {
+                                 "frame":  {
+                                               "x":  48,
+                                               "y":  273,
+                                               "w":  17,
+                                               "h":  16
+                                           },
+                                 "rotated":  false,
+                                 "trimmed":  true,
+                                 "spriteSourceSize":  {
+                                                          "x":  17,
+                                                          "y":  20,
+                                                          "w":  17,
+                                                          "h":  16
+                                                      },
+                                 "sourceSize":  {
+                                                    "w":  52,
+                                                    "h":  57
+                                                }
+                             },
+                   "red_2":  {
+                                 "frame":  {
+                                               "x":  77,
+                                               "y":  254,
+                                               "w":  50,
+                                               "h":  47
+                                           },
+                                 "rotated":  false,
+                                 "trimmed":  true,
+                                 "spriteSourceSize":  {
+                                                          "x":  1,
+                                                          "y":  5,
+                                                          "w":  50,
+                                                          "h":  47
+                                                      },
+                                 "sourceSize":  {
+                                                    "w":  52,
+                                                    "h":  57
+                                                }
+                             },
+                   "red_3":  {
+                                 "frame":  {
+                                               "x":  146,
+                                               "y":  252,
+                                               "w":  48,
+                                               "h":  51
+                                           },
+                                 "rotated":  false,
+                                 "trimmed":  true,
+                                 "spriteSourceSize":  {
+                                                          "x":  2,
+                                                          "y":  3,
+                                                          "w":  48,
+                                                          "h":  51
+                                                      },
+                                 "sourceSize":  {
+                                                    "w":  52,
+                                                    "h":  57
+                                                }
+                             },
+                   "red_4":  {
+                                 "frame":  {
+                                               "x":  213,
+                                               "y":  250,
+                                               "w":  52,
+                                               "h":  57
+                                           },
+                                 "rotated":  false,
+                                 "trimmed":  true,
+                                 "spriteSourceSize":  {
+                                                          "x":  0,
+                                                          "y":  0,
+                                                          "w":  52,
+                                                          "h":  57
+                                                      },
+                                 "sourceSize":  {
+                                                    "w":  52,
+                                                    "h":  57
+                                                }
+                             },
+                   "red_5":  {
+                                 "frame":  {
+                                               "x":  286,
+                                               "y":  267,
+                                               "w":  32,
+                                               "h":  29
+                                           },
+                                 "rotated":  false,
+                                 "trimmed":  true,
+                                 "spriteSourceSize":  {
+                                                          "x":  10,
+                                                          "y":  14,
+                                                          "w":  32,
+                                                          "h":  29
+                                                      },
+                                 "sourceSize":  {
+                                                    "w":  52,
+                                                    "h":  57
+                                                }
+                             },
+                   "red_6":  {
+                                 "frame":  {
+                                               "x":  337,
+                                               "y":  266,
+                                               "w":  31,
+                                               "h":  30
+                                           },
+                                 "rotated":  false,
+                                 "trimmed":  true,
+                                 "spriteSourceSize":  {
+                                                          "x":  10,
+                                                          "y":  13,
+                                                          "w":  31,
+                                                          "h":  30
+                                                      },
+                                 "sourceSize":  {
+                                                    "w":  52,
+                                                    "h":  57
+                                                }
+                             }
+               },
+    "meta":  {
+                 "image":  "Explosion-0001.png",
+                 "size":  {
+                              "w":  384,
+                              "h":  320
+                          },
+                 "scale":  "1",
+                 "generator":  "tools/slice-sprites.ps1"
+             }
+}

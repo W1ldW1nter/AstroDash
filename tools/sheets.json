@@ -1,0 +1,103 @@
+[
+  {
+    "key": "player", "file": "SpaceShips_Player-0001.png",
+    "groups": [{ "rows": [
+      ["fighter_silver", "fighter_green", "fighter_blue", "fighter_orange"],
+      ["fighter_dark", "fighter_red"],
+      ["gunship_dark", "gunship_green", "gunship_blue"],
+      ["gunship_silver", "gunship_orange", "gunship_red"]
+    ]}]
+  },
+  {
+    "key": "enemy", "file": "SpaceShips_Enemy-0001.png",
+    "groups": [{ "rows": [
+      ["heavy_a", "large_a", "medium_a", "small_a"],
+      ["heavy_b", "large_b", "medium_b", "small_b"],
+      ["heavy_c", "large_c", "medium_c", "small_c"]
+    ]}]
+  },
+  {
+    "key": "boss", "file": "SpaceShip_Boss-0001.png",
+    "groups": [
+      { "region": [0, 0, 256, 34], "uniform": true, "rows": ["flame"] },
+      { "region": [0, 34, 256, 382], "rows": [
+        ["red", "red_dark"],
+        ["orange", "orange_dark"],
+        ["pink", "pink_dark"]
+      ]}
+    ]
+  },
+  {
+    "key": "bullets", "file": "Bullets-0001.png",
+    "groups": [
+      { "region": [0, 0, 200, 256], "gap": 1, "rows": [
+        ["blue_orb_l",   "blue_orb_m",   "blue_orb_s",   "blue_capsule_l",   "blue_capsule_m",   "blue_capsule_s",   "blue_dart_l",   "blue_dart_m",   "blue_dart_s"],
+        ["green_orb_l",  "green_orb_m",  "green_orb_s",  "green_capsule_l",  "green_capsule_m",  "green_capsule_s",  "green_dart_l",  "green_dart_m",  "green_dart_s"],
+        ["red_orb_l",    "red_orb_m",    "red_orb_s",    "red_capsule_l",    "red_capsule_m",    "red_capsule_s",    "red_dart_l",    "red_dart_m",    "red_dart_s"],
+        ["yellow_orb_l", "yellow_orb_m", "yellow_orb_s", "yellow_capsule_l", "yellow_capsule_m", "yellow_capsule_s", "yellow_dart_l", "yellow_dart_m", "yellow_dart_s"],
+        ["pink_orb_l",   "pink_orb_m",   "pink_orb_s",   "pink_capsule_l",   "pink_capsule_m",   "pink_capsule_s",   "pink_dart_l",   "pink_dart_m",   "pink_dart_s"],
+        ["white_orb_l",  "white_orb_m",  "white_orb_s",  "white_capsule_l",  "white_capsule_m",  "white_capsule_s",  "white_dart_l",  "white_dart_m",  "white_dart_s"]
+      ]},
+      { "region": [200, 0, 56, 120], "uniform": true, "rows": [
+        ["beam_charge_0"], ["beam_charge_1"], ["beam_charge_2"]
+      ]},
+      { "region": [200, 140, 56, 116], "rows": [
+        ["beam_head_0", "beam_body_0"],
+        ["beam_head_1", "beam_body_1"],
+        ["beam_head_2", "beam_body_2"]
+      ]}
+    ]
+  },
+  {
+    "key": "bonuses", "file": "Bonuses-0001.png",
+    "groups": [{ "rows": [
+      ["health_0", "shield_0", "bomb_0", "rapid_0", "double_0"],
+      ["health_1", "shield_1", "bomb_1", "rapid_1", "double_1"],
+      ["health_2", "shield_2", "bomb_2", "rapid_2", "double_2"],
+      ["health_3", "shield_3", "bomb_3", "rapid_3", "double_3"],
+      ["health_4", "shield_4", "bomb_4", "rapid_4", "double_4"]
+    ]}]
+  },
+  {
+    "key": "explosion", "file": "Explosion-0001.png", "gap": 6,
+    "groups": [{ "uniform": true, "rows": ["orange", "teal", "pink", "red"] }]
+  },
+  {
+    "key": "exhaust", "file": "Exhaust-0001.png",
+    "groups": [
+      { "region": [0, 0, 128, 64], "uniform": true, "rows": ["red_l", "red_m"] },
+      { "region": [0, 64, 128, 30], "uniform": true, "rows": ["red_s"] },
+      { "region": [0, 94, 128, 34], "uniform": true, "rows": ["blue_l"] }
+    ]
+  },
+  {
+    "key": "mine", "file": "Mine-0001.png",
+    "groups": [{ "uniform": true, "rows": ["red_s", "red_l", "orange_s", "orange_l", "pink_s", "pink_l"] }]
+  },
+  {
+    "key": "asteroids", "file": "Asteroids-0001.png",
+    "groups": [{ "rows": [
+      ["brown_s", "grey_s"],
+      ["brown_m", "grey_m"],
+      ["brown_l", "grey_l"]
+    ]}]
+  },
+  {
+    "key": "barrier", "file": "Barrier-0001.png",
+    "groups": [{ "rows": [["green", "cyan"], ["pink", "red"]] }]
+  },
+  {
+    "key": "ui", "file": "UI_sprites-0001.png",
+    "groups": [
+      { "region": [0, 0, 84, 62],   "rows": [["panel_score"], ["panel"]] },
+      { "region": [0, 76, 84, 22],  "rows": [["heart_full", "heart_empty", "clock", "skull"]] },
+      { "region": [0, 98, 84, 30],  "rows": [["bar_fill", "bar_empty"]] },
+      { "region": [84, 0, 44, 128], "rows": [["icon_health"], ["icon_shield"], ["icon_bomb"], ["icon_rapid"], ["icon_double"]] }
+    ],
+    "manual": {
+      "digit_1": [9, 69, 4, 4],  "digit_2": [14, 69, 4, 4], "digit_3": [19, 69, 4, 4], "digit_4": [24, 69, 4, 4],
+      "digit_5": [29, 69, 4, 4], "digit_6": [34, 69, 4, 4], "digit_7": [39, 69, 4, 4], "digit_8": [44, 69, 4, 4],
+      "digit_9": [49, 69, 4, 4], "digit_0": [54, 69, 4, 4]
+    }
+  }
+]

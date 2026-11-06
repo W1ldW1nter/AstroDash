@@ -1,0 +1,473 @@
+{
+    "frames":  {
+                   "panel_score":  {
+                                       "frame":  {
+                                                     "x":  4,
+                                                     "y":  11,
+                                                     "w":  73,
+                                                     "h":  21
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  73,
+                                                                "h":  21
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  73,
+                                                          "h":  21
+                                                      }
+                                   },
+                   "panel":  {
+                                 "frame":  {
+                                               "x":  4,
+                                               "y":  36,
+                                               "w":  73,
+                                               "h":  21
+                                           },
+                                 "rotated":  false,
+                                 "trimmed":  false,
+                                 "spriteSourceSize":  {
+                                                          "x":  0,
+                                                          "y":  0,
+                                                          "w":  73,
+                                                          "h":  21
+                                                      },
+                                 "sourceSize":  {
+                                                    "w":  73,
+                                                    "h":  21
+                                                }
+                             },
+                   "heart_full":  {
+                                      "frame":  {
+                                                    "x":  3,
+                                                    "y":  82,
+                                                    "w":  13,
+                                                    "h":  11
+                                                },
+                                      "rotated":  false,
+                                      "trimmed":  false,
+                                      "spriteSourceSize":  {
+                                                               "x":  0,
+                                                               "y":  0,
+                                                               "w":  13,
+                                                               "h":  11
+                                                           },
+                                      "sourceSize":  {
+                                                         "w":  13,
+                                                         "h":  11
+                                                     }
+                                  },
+                   "heart_empty":  {
+                                       "frame":  {
+                                                     "x":  19,
+                                                     "y":  82,
+                                                     "w":  13,
+                                                     "h":  11
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  13,
+                                                                "h":  11
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  13,
+                                                          "h":  11
+                                                      }
+                                   },
+                   "clock":  {
+                                 "frame":  {
+                                               "x":  36,
+                                               "y":  80,
+                                               "w":  14,
+                                               "h":  14
+                                           },
+                                 "rotated":  false,
+                                 "trimmed":  false,
+                                 "spriteSourceSize":  {
+                                                          "x":  0,
+                                                          "y":  0,
+                                                          "w":  14,
+                                                          "h":  14
+                                                      },
+                                 "sourceSize":  {
+                                                    "w":  14,
+                                                    "h":  14
+                                                }
+                             },
+                   "skull":  {
+                                 "frame":  {
+                                               "x":  55,
+                                               "y":  80,
+                                               "w":  10,
+                                               "h":  14
+                                           },
+                                 "rotated":  false,
+                                 "trimmed":  false,
+                                 "spriteSourceSize":  {
+                                                          "x":  0,
+                                                          "y":  0,
+                                                          "w":  10,
+                                                          "h":  14
+                                                      },
+                                 "sourceSize":  {
+                                                    "w":  10,
+                                                    "h":  14
+                                                }
+                             },
+                   "bar_fill":  {
+                                    "frame":  {
+                                                  "x":  16,
+                                                  "y":  101,
+                                                  "w":  6,
+                                                  "h":  22
+                                              },
+                                    "rotated":  false,
+                                    "trimmed":  false,
+                                    "spriteSourceSize":  {
+                                                             "x":  0,
+                                                             "y":  0,
+                                                             "w":  6,
+                                                             "h":  22
+                                                         },
+                                    "sourceSize":  {
+                                                       "w":  6,
+                                                       "h":  22
+                                                   }
+                                },
+                   "bar_empty":  {
+                                     "frame":  {
+                                                   "x":  26,
+                                                   "y":  101,
+                                                   "w":  6,
+                                                   "h":  22
+                                               },
+                                     "rotated":  false,
+                                     "trimmed":  false,
+                                     "spriteSourceSize":  {
+                                                              "x":  0,
+                                                              "y":  0,
+                                                              "w":  6,
+                                                              "h":  22
+                                                          },
+                                     "sourceSize":  {
+                                                        "w":  6,
+                                                        "h":  22
+                                                    }
+                                 },
+                   "icon_health":  {
+                                       "frame":  {
+                                                     "x":  93,
+                                                     "y":  2,
+                                                     "w":  22,
+                                                     "h":  22
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  22,
+                                                                "h":  22
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  22,
+                                                          "h":  22
+                                                      }
+                                   },
+                   "icon_shield":  {
+                                       "frame":  {
+                                                     "x":  93,
+                                                     "y":  27,
+                                                     "w":  22,
+                                                     "h":  22
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  22,
+                                                                "h":  22
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  22,
+                                                          "h":  22
+                                                      }
+                                   },
+                   "icon_bomb":  {
+                                     "frame":  {
+                                                   "x":  93,
+                                                   "y":  52,
+                                                   "w":  22,
+                                                   "h":  22
+                                               },
+                                     "rotated":  false,
+                                     "trimmed":  false,
+                                     "spriteSourceSize":  {
+                                                              "x":  0,
+                                                              "y":  0,
+                                                              "w":  22,
+                                                              "h":  22
+                                                          },
+                                     "sourceSize":  {
+                                                        "w":  22,
+                                                        "h":  22
+                                                    }
+                                 },
+                   "icon_rapid":  {
+                                      "frame":  {
+                                                    "x":  93,
+                                                    "y":  77,
+                                                    "w":  22,
+                                                    "h":  22
+                                                },
+                                      "rotated":  false,
+                                      "trimmed":  false,
+                                      "spriteSourceSize":  {
+                                                               "x":  0,
+                                                               "y":  0,
+                                                               "w":  22,
+                                                               "h":  22
+                                                           },
+                                      "sourceSize":  {
+                                                         "w":  22,
+                                                         "h":  22
+                                                     }
+                                  },
+                   "icon_double":  {
+                                       "frame":  {
+                                                     "x":  93,
+                                                     "y":  102,
+                                                     "w":  22,
+                                                     "h":  22
+                                                 },
+                                       "rotated":  false,
+                                       "trimmed":  false,
+                                       "spriteSourceSize":  {
+                                                                "x":  0,
+                                                                "y":  0,
+                                                                "w":  22,
+                                                                "h":  22
+                                                            },
+                                       "sourceSize":  {
+                                                          "w":  22,
+                                                          "h":  22
+                                                      }
+                                   },
+                   "digit_1":  {
+                                   "frame":  {
+                                                 "x":  9,
+                                                 "y":  69,
+                                                 "w":  4,
+                                                 "h":  4
+                                             },
+                                   "rotated":  false,
+                                   "trimmed":  false,
+                                   "spriteSourceSize":  {
+                                                            "x":  0,
+                                                            "y":  0,
+                                                            "w":  4,
+                                                            "h":  4
+                                                        },
+                                   "sourceSize":  {
+                                                      "w":  4,
+                                                      "h":  4
+                                                  }
+                               },
+                   "digit_2":  {
+                                   "frame":  {
+                                                 "x":  14,
+                                                 "y":  69,
+                                                 "w":  4,
+                                                 "h":  4
+                                             },
+                                   "rotated":  false,
+                                   "trimmed":  false,
+                                   "spriteSourceSize":  {
+                                                            "x":  0,
+                                                            "y":  0,
+                                                            "w":  4,
+                                                            "h":  4
+                                                        },
+                                   "sourceSize":  {
+                                                      "w":  4,
+                                                      "h":  4
+                                                  }
+                               },
+                   "digit_3":  {
+                                   "frame":  {
+                                                 "x":  19,
+                                                 "y":  69,
+                                                 "w":  4,
+                                                 "h":  4
+                                             },
+                                   "rotated":  false,
+                                   "trimmed":  false,
+                                   "spriteSourceSize":  {
+                                                            "x":  0,
+                                                            "y":  0,
+                                                            "w":  4,
+                                                            "h":  4
+                                                        },
+                                   "sourceSize":  {
+                                                      "w":  4,
+                                                      "h":  4
+                                                  }
+                               },
+                   "digit_4":  {
+                                   "frame":  {
+                                                 "x":  24,
+                                                 "y":  69,
+                                                 "w":  4,
+                                                 "h":  4
+                                             },
+                                   "rotated":  false,
+                                   "trimmed":  false,
+                                   "spriteSourceSize":  {
+                                                            "x":  0,
+                                                            "y":  0,
+                                                            "w":  4,
+                                                            "h":  4
+                                                        },
+                                   "sourceSize":  {
+                                                      "w":  4,
+                                                      "h":  4
+                                                  }
+                               },
+                   "digit_5":  {
+                                   "frame":  {
+                                                 "x":  29,
+                                                 "y":  69,
+                                                 "w":  4,
+                                                 "h":  4
+                                             },
+                                   "rotated":  false,
+                                   "trimmed":  false,
+                                   "spriteSourceSize":  {
+                                                            "x":  0,
+                                                            "y":  0,
+                                                            "w":  4,
+                                                            "h":  4
+                                                        },
+                                   "sourceSize":  {
+                                                      "w":  4,
+                                                      "h":  4
+                                                  }
+                               },
+                   "digit_6":  {
+                                   "frame":  {
+                                                 "x":  34,
+                                                 "y":  69,
+                                                 "w":  4,
+                                                 "h":  4
+                                             },
+                                   "rotated":  false,
+                                   "trimmed":  false,
+                                   "spriteSourceSize":  {
+                                                            "x":  0,
+                                                            "y":  0,
+                                                            "w":  4,
+                                                            "h":  4
+                                                        },
+                                   "sourceSize":  {
+                                                      "w":  4,
+                                                      "h":  4
+                                                  }
+                               },
+                   "digit_7":  {
+                                   "frame":  {
+                                                 "x":  39,
+                                                 "y":  69,
+                                                 "w":  4,
+                                                 "h":  4
+                                             },
+                                   "rotated":  false,
+                                   "trimmed":  false,
+                                   "spriteSourceSize":  {
+                                                            "x":  0,
+                                                            "y":  0,
+                                                            "w":  4,
+                                                            "h":  4
+                                                        },
+                                   "sourceSize":  {
+                                                      "w":  4,
+                                                      "h":  4
+                                                  }
+                               },
+                   "digit_8":  {
+                                   "frame":  {
+                                                 "x":  44,
+                                                 "y":  69,
+                                                 "w":  4,
+                                                 "h":  4
+                                             },
+                                   "rotated":  false,
+                                   "trimmed":  false,
+                                   "spriteSourceSize":  {
+                                                            "x":  0,
+                                                            "y":  0,
+                                                            "w":  4,
+                                                            "h":  4
+                                                        },
+                                   "sourceSize":  {
+                                                      "w":  4,
+                                                      "h":  4
+                                                  }
+                               },
+                   "digit_9":  {
+                                   "frame":  {
+                                                 "x":  49,
+                                                 "y":  69,
+                                                 "w":  4,
+                                                 "h":  4
+                                             },
+                                   "rotated":  false,
+                                   "trimmed":  false,
+                                   "spriteSourceSize":  {
+                                                            "x":  0,
+                                                            "y":  0,
+                                                            "w":  4,
+                                                            "h":  4
+                                                        },
+                                   "sourceSize":  {
+                                                      "w":  4,
+                                                      "h":  4
+                                                  }
+                               },
+                   "digit_0":  {
+                                   "frame":  {
+                                                 "x":  54,
+                                                 "y":  69,
+                                                 "w":  4,
+                                                 "h":  4
+                                             },
+                                   "rotated":  false,
+                                   "trimmed":  false,
+                                   "spriteSourceSize":  {
+                                                            "x":  0,
+                                                            "y":  0,
+                                                            "w":  4,
+                                                            "h":  4
+                                                        },
+                                   "sourceSize":  {
+                                                      "w":  4,
+                                                      "h":  4
+                                                  }
+                               }
+               },
+    "meta":  {
+                 "image":  "UI_sprites-0001.png",
+                 "size":  {
+                              "w":  128,
+                              "h":  128
+                          },
+                 "scale":  "1",
+                 "generator":  "tools/slice-sprites.ps1"
+             }
+}

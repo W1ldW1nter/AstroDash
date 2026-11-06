@@ -1,0 +1,93 @@
+{
+    "frames":  {
+                   "green":  {
+                                 "frame":  {
+                                               "x":  15,
+                                               "y":  16,
+                                               "w":  68,
+                                               "h":  68
+                                           },
+                                 "rotated":  false,
+                                 "trimmed":  false,
+                                 "spriteSourceSize":  {
+                                                          "x":  0,
+                                                          "y":  0,
+                                                          "w":  68,
+                                                          "h":  68
+                                                      },
+                                 "sourceSize":  {
+                                                    "w":  68,
+                                                    "h":  68
+                                                }
+                             },
+                   "cyan":  {
+                                "frame":  {
+                                              "x":  99,
+                                              "y":  16,
+                                              "w":  68,
+                                              "h":  68
+                                          },
+                                "rotated":  false,
+                                "trimmed":  false,
+                                "spriteSourceSize":  {
+                                                         "x":  0,
+                                                         "y":  0,
+                                                         "w":  68,
+                                                         "h":  68
+                                                     },
+                                "sourceSize":  {
+                                                   "w":  68,
+                                                   "h":  68
+                                               }
+                            },
+                   "pink":  {
+                                "frame":  {
+                                              "x":  15,
+                                              "y":  94,
+                                              "w":  68,
+                                              "h":  68
+                                          },
+                                "rotated":  false,
+                                "trimmed":  false,
+                                "spriteSourceSize":  {
+                                                         "x":  0,
+                                                         "y":  0,
+                                                         "w":  68,
+                                                         "h":  68
+                                                     },
+                                "sourceSize":  {
+                                                   "w":  68,
+                                                   "h":  68
+                                               }
+                            },
+                   "red":  {
+                               "frame":  {
+                                             "x":  99,
+                                             "y":  94,
+                                             "w":  68,
+                                             "h":  68
+                                         },
+                               "rotated":  false,
+                               "trimmed":  false,
+                               "spriteSourceSize":  {
+                                                        "x":  0,
+                                                        "y":  0,
+                                                        "w":  68,
+                                                        "h":  68
+                                                    },
+                               "sourceSize":  {
+                                                  "w":  68,
+                                                  "h":  68
+                                              }
+                           }
+               },
+    "meta":  {
+                 "image":  "Barrier-0001.png",
+                 "size":  {
+                              "w":  176,
+                              "h":  176
+                          },
+                 "scale":  "1",
+                 "generator":  "tools/slice-sprites.ps1"
+             }
+}
