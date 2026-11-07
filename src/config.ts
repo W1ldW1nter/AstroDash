@@ -9,6 +9,8 @@ export const GAME_HEIGHT = 672;
 export const SCENES = {
   Boot: 'Boot',
   Preload: 'Preload',
+  Title: 'Title',
+  ShipSelect: 'ShipSelect',
   Game: 'Game',
   BulletLab: 'BulletLab',
   SpriteViewer: 'SpriteViewer',

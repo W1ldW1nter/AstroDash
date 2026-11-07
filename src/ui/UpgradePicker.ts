@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { GAME_HEIGHT, GAME_WIDTH } from '../config';
 import type { Player } from '../entities/Player';
 import type { Upgrade } from '../data/upgrades';
+import { COLORS, COLOR_NUM, textStyle } from './theme';
 
 const CARD_W = 140;
 const CARD_H = 168;
@@ -32,28 +33,30 @@ export class UpgradePicker {
     const cy = GAME_HEIGHT / 2;
     this.root = scene.add.container(0, 0).setDepth(depth);
 
-    const shade = scene.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, 0x05060f, 0.78).setOrigin(0);
-    const title = scene.add.text(cx, cy - CARD_H / 2 - 44, 'BOSS DEFEATED', { fontFamily: 'monospace', fontSize: '12px', color: '#9bd8ff' }).setOrigin(0.5);
-    const sub = scene.add.text(cx, cy - CARD_H / 2 - 24, 'CHOOSE AN UPGRADE', { fontFamily: 'monospace', fontSize: '18px', color: '#ffffff' }).setOrigin(0.5);
-    const hint = scene.add
-      .text(cx, cy + CARD_H / 2 + 26, '← → select    Z / ENTER confirm', { fontFamily: 'monospace', fontSize: '11px', color: '#8b9bb4' })
-      .setOrigin(0.5);
+    const shade = scene.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, COLOR_NUM.shade, 0.78).setOrigin(0);
+    const title = scene.add.text(cx, cy - CARD_H / 2 - 52, 'BOSS DEFEATED', textStyle(8, COLORS.accent)).setOrigin(0.5);
+    const sub = scene.add.text(cx, cy - CARD_H / 2 - 28, 'CHOOSE AN UPGRADE', textStyle(16)).setOrigin(0.5);
+    const hint = scene.add.text(cx, cy + CARD_H / 2 + 28, 'LEFT/RIGHT SELECT   Z/ENTER CONFIRM', textStyle(8, COLORS.dim)).setOrigin(0.5);
     this.root.add([shade, title, sub, hint]);
 
     const totalW = options.length * CARD_W + (options.length - 1) * GAP;
     options.forEach((u, i) => {
       const x = cx - totalW / 2 + CARD_W / 2 + i * (CARD_W + GAP);
       const group = scene.add.container(x, cy);
-      const box = scene.add.rectangle(0, 0, CARD_W, CARD_H, 0x111428, 1).setStrokeStyle(2, 0x3a4466);
+      const box = scene.add.rectangle(0, 0, CARD_W, CARD_H, COLOR_NUM.panel, 1).setStrokeStyle(2, COLOR_NUM.panelEdge);
       const icon = scene.add.image(0, -42, 'bonuses', u.icon).setScale(2);
       const level = player.upgrades[u.id] ?? 0;
-      const name = scene.add.text(0, 6, u.name.toUpperCase(), { fontFamily: 'monospace', fontSize: '13px', color: '#ffffff' }).setOrigin(0.5);
+      const name = scene.add.text(0, 6, u.name.toUpperCase(), textStyle(8)).setOrigin(0.5);
       const desc = scene.add
-        .text(0, 34, u.description(player), { fontFamily: 'monospace', fontSize: '10px', color: '#cfe8ff', align: 'center', wordWrap: { width: CARD_W - 20 } })
+        .text(0, 26, u.description(player).toUpperCase(), textStyle(8, COLORS.accent, { align: 'center', lineSpacing: 4, wordWrap: { width: CARD_W - 16 } }))
         .setOrigin(0.5, 0);
-      const pips = scene.add
-        .text(0, CARD_H / 2 - 16, '■'.repeat(level) + '□'.repeat(u.max - level), { fontFamily: 'monospace', fontSize: '10px', color: '#ffd23f' })
-        .setOrigin(0.5);
+      // Level pips: filled = already taken, outline = still available.
+      const pips = scene.add.graphics();
+      const pipX = -((u.max - 1) * 12) / 2;
+      for (let p = 0; p < u.max; p++) {
+        if (p < level) pips.fillStyle(COLOR_NUM.gold, 1).fillRect(pipX + p * 12 - 3, CARD_H / 2 - 19, 7, 7);
+        else pips.lineStyle(1, COLOR_NUM.gold, 1).strokeRect(pipX + p * 12 - 3 + 0.5, CARD_H / 2 - 19 + 0.5, 6, 6);
+      }
       group.add([box, icon, name, desc, pips]);
       box.setInteractive({ useHandCursor: true });
       box.on('pointerover', () => this.select(i));

@@ -18,6 +18,8 @@ import type { Enemy } from '../entities/Enemy';
 import { PickupManager } from '../entities/Pickups';
 import { Scoring } from '../systems/Scoring';
 import { DROPS, MAX_BOMBS, PICKUPS, type PickupId } from '../data/pickups';
+import { Menu } from '../ui/Menu';
+import { COLORS, COLOR_NUM, textStyle } from '../ui/theme';
 
 /** Render order. */
 export const DEPTH = {
@@ -32,7 +34,6 @@ export const DEPTH = {
   ui: 100,
 } as const;
 
-const TEXT = { fontFamily: 'monospace', fontSize: '10px', color: '#cfe8ff' };
 const SPAWN_X = GAME_WIDTH / 2;
 const SPAWN_Y = GAME_HEIGHT - 90;
 const RESPAWN_DELAY_MS = 1000;
@@ -73,6 +74,12 @@ export class GameScene extends Phaser.Scene {
   private bombTimer = 0;
   /** Gameplay frozen (upgrade screen open). */
   private paused = false;
+  /** Pause menu open: everything frozen, including the background, timers and animations. */
+  private menuPaused = false;
+  private pauseLayer: Phaser.GameObjects.GameObject[] = [];
+  private pauseMenu: Menu | null = null;
+  /** Time survived this run (ms), excluding pauses and the upgrade screen. */
+  private runTime = 0;
   private bannerTexts: Phaser.GameObjects.Text[] = [];
   private startShip: ShipClass['id'] = 'fighter';
   private startSkin: Skin = 'blue';
@@ -89,6 +96,10 @@ export class GameScene extends Phaser.Scene {
   create(): void {
     this.gameOver = false;
     this.paused = false;
+    this.menuPaused = false;
+    this.pauseLayer = [];
+    this.pauseMenu = null;
+    this.runTime = 0;
     this.bombTimer = 0;
     this.bannerTexts = [];
     this.scoring = new Scoring(this.startShip);
@@ -104,25 +115,28 @@ export class GameScene extends Phaser.Scene {
     this.pickups = new PickupManager(this, DEPTH.pickups);
     this.pickups.onCollect = (id, x, y) => this.collectPickup(id, x, y);
     this.enemies.onKilled = (e) => this.onEnemyKilled(e);
-    this.enemies.onBossPhase = (_boss, phase) => this.banner(phase === 2 ? 'FINAL PHASE' : `PHASE ${phase + 1}`, '', '#ffd23f');
+    this.enemies.onBossPhase = (_boss, phase) => this.banner(phase === 2 ? 'FINAL PHASE' : `PHASE ${phase + 1}`, '', COLORS.gold);
     this.director = new WaveDirector(this.enemies, difficulty, {
       onWaveStart: (wave, kind) => this.banner(`WAVE ${wave}`, kind === 'boss' ? 'BOSS WAVE' : kind === 'miniboss' ? 'MINIBOSS WAVE' : ''),
       onBigEnemy: (kind) =>
-        this.banner('WARNING', kind === 'boss' ? bossLook(Math.floor((this.director.wave - 1) / 6)).title : 'MINIBOSS APPROACHING', '#ff3d6e'),
+        this.banner('WARNING', kind === 'boss' ? bossLook(Math.floor((this.director.wave - 1) / 6)).title : 'MINIBOSS APPROACHING', COLORS.danger),
       onWaveCleared: (wave, kind, resume) => this.onWaveCleared(wave, kind, resume),
     });
 
     this.hud = new Hud(this, DEPTH.ui);
-    this.debugText = this.add.text(6, 34, '', TEXT).setDepth(DEPTH.ui).setAlpha(0.85).setVisible(false);
+    this.debugText = this.add.text(6, 100, '', textStyle(8, COLORS.accent, { lineSpacing: 4 })).setDepth(DEPTH.ui).setVisible(false);
     this.showHelp();
+    this.bindPauseKeys();
     this.bindDevKeys();
   }
 
   update(_time: number, delta: number): void {
+    if (this.menuPaused) return;
     // Clamp huge frame gaps (tab switch, breakpoint) so nothing teleports.
     const dt = Math.min(delta, 50);
     this.background.update(dt);
     if (this.paused) return;
+    if (!this.gameOver) this.runTime += dt;
     this.player.update(dt, this.controls);
     if (this.controls.bomb) this.useBomb();
     this.playerBullets.update(dt);
@@ -157,7 +171,7 @@ export class GameScene extends Phaser.Scene {
     if (this.gameOver) return;
     const { bonus, noHit } = this.scoring.waveCleared(wave);
     if (kind !== 'boss') {
-      this.banner('WAVE CLEAR', `+${bonus}${noHit ? '  NO-HIT BONUS x2' : ''}`, '#9bd8ff');
+      this.banner('WAVE CLEAR', `+${bonus}${noHit ? '  NO-HIT BONUS x2' : ''}`, COLORS.accent);
       return;
     }
     // Boss down: let the explosions play out, then freeze the action and offer 1 of 3 upgrades.
@@ -169,20 +183,20 @@ export class GameScene extends Phaser.Scene {
       new UpgradePicker(this, this.player, rollUpgrades(this.player), DEPTH.ui + 10, (u) => {
         applyUpgrade(this.player, u);
         this.paused = false;
-        this.banner(u.name.toUpperCase(), 'UPGRADE ACQUIRED', '#ffd23f');
+        this.banner(u.name.toUpperCase(), 'UPGRADE ACQUIRED', COLORS.gold);
         resume();
       });
     });
   }
 
   /** Big centered text that fades in and out. */
-  private banner(title: string, subtitle = '', color = '#ffffff'): void {
+  private banner(title: string, subtitle = '', color: string = COLORS.text): void {
     // A new banner replaces any that is still showing.
     for (const o of this.bannerTexts) o.destroy();
     const cx = GAME_WIDTH / 2;
     const cy = GAME_HEIGHT * 0.36;
-    const t = this.add.text(cx, cy, title, { fontFamily: 'monospace', fontSize: '26px', color }).setOrigin(0.5).setDepth(DEPTH.ui);
-    const s = this.add.text(cx, cy + 26, subtitle, { fontFamily: 'monospace', fontSize: '12px', color: '#cfe8ff' }).setOrigin(0.5).setDepth(DEPTH.ui);
+    const t = this.add.text(cx, cy, title, textStyle(24, color)).setOrigin(0.5).setDepth(DEPTH.ui);
+    const s = this.add.text(cx, cy + 30, subtitle, textStyle(8, COLORS.accent)).setOrigin(0.5).setDepth(DEPTH.ui);
     this.bannerTexts = [t, s];
     for (const o of [t, s]) {
       o.setAlpha(0);
@@ -243,27 +257,106 @@ export class GameScene extends Phaser.Scene {
 
   private showGameOver(): void {
     const cx = GAME_WIDTH / 2;
-    const cy = GAME_HEIGHT / 2;
-    this.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, 0x000000, 0.55).setOrigin(0).setDepth(DEPTH.ui);
+    const top = 150;
+    const d = DEPTH.ui + 5;
     const record = this.scoring.saveHighScore();
-    this.add.text(cx, cy - 40, 'GAME OVER', { fontFamily: 'monospace', fontSize: '28px', color: '#ff3d6e' }).setOrigin(0.5).setDepth(DEPTH.ui);
-    this.add.text(cx, cy - 4, `SCORE ${this.scoring.score}`, { fontFamily: 'monospace', fontSize: '14px', color: '#ffffff' }).setOrigin(0.5).setDepth(DEPTH.ui);
-    const hi = record ? 'NEW HIGH SCORE!' : `HIGH SCORE ${this.scoring.highScore}`;
-    this.add
-      .text(cx, cy + 16, `${hi}  (${this.player.ship.name})`, { fontFamily: 'monospace', fontSize: '11px', color: record ? '#ffd23f' : '#8b9bb4' })
-      .setOrigin(0.5)
-      .setDepth(DEPTH.ui);
-    this.add
-      .text(cx, cy + 32, `wave ${this.director.wave}  ·  grazes ${this.scoring.grazes}`, { fontFamily: 'monospace', fontSize: '10px', color: '#8b9bb4' })
-      .setOrigin(0.5)
-      .setDepth(DEPTH.ui);
-    const prompt = this.add
-      .text(cx, cy + 56, 'press ENTER to retry', { fontFamily: 'monospace', fontSize: '12px', color: '#9bd8ff' })
-      .setOrigin(0.5)
-      .setDepth(DEPTH.ui);
-    this.tweens.add({ targets: prompt, alpha: 0.3, duration: 600, yoyo: true, repeat: -1 });
-    // Retry with the same ship and colour.
-    this.input.keyboard!.once('keydown-ENTER', () => this.scene.restart({ shipId: this.player.ship.id, skin: this.player.skin }));
+    const s = this.scoring;
+
+    this.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, COLOR_NUM.shade, 0.6).setOrigin(0).setDepth(d);
+    this.add.rectangle(cx, top + 165, 340, 350, COLOR_NUM.panel, 0.95).setStrokeStyle(2, COLOR_NUM.panelEdge).setDepth(d);
+    this.add.text(cx, top + 30, 'GAME OVER', textStyle(24, COLORS.danger)).setOrigin(0.5).setDepth(d);
+    this.add.text(cx, top + 58, this.player.ship.name.toUpperCase(), textStyle(8, COLORS.dim)).setOrigin(0.5).setDepth(d);
+
+    const mins = Math.floor(this.runTime / 60000);
+    const secs = Math.floor((this.runTime % 60000) / 1000).toString().padStart(2, '0');
+    const rows: [string, string, string?][] = [
+      ['SCORE', s.score.toString(), COLORS.text],
+      ['BEST', Math.max(s.highScore, s.score).toString(), record ? COLORS.gold : COLORS.dim],
+      ['WAVE', this.director.wave.toString()],
+      ['KILLS', s.kills.toString()],
+      ['GRAZES', s.grazes.toString()],
+      ['TIME', `${mins}:${secs}`],
+    ];
+    rows.forEach(([label, value, color], i) => {
+      const y = top + 90 + i * 20;
+      this.add.text(cx - 130, y, label, textStyle(8, COLORS.dim)).setOrigin(0, 0.5).setDepth(d);
+      this.add.text(cx + 130, y, value, textStyle(8, color ?? COLORS.text)).setOrigin(1, 0.5).setDepth(d);
+    });
+    if (record) {
+      const nh = this.add.text(cx, top + 222, 'NEW HIGH SCORE!', textStyle(16, COLORS.gold)).setOrigin(0.5).setDepth(d);
+      this.tweens.add({ targets: nh, alpha: 0.4, duration: 500, yoyo: true, repeat: -1 });
+    }
+
+    const choice = { shipId: this.player.ship.id, skin: this.player.skin };
+    new Menu(
+      this,
+      cx,
+      top + 260,
+      [
+        { label: 'RETRY', action: () => this.scene.restart(choice) },
+        { label: 'CHANGE SHIP', action: () => this.scene.start(SCENES.ShipSelect) },
+        { label: 'TITLE', action: () => this.scene.start(SCENES.Title) },
+      ],
+      { depth: d, size: 8, spacing: 18, armMs: 600 },
+    );
+  }
+
+  // ---------------------------------------------------------------- pause
+
+  private bindPauseKeys(): void {
+    const kb = this.input.keyboard!;
+    kb.on('keydown-ESC', () => (this.menuPaused ? this.resume() : this.pause()));
+    kb.on('keydown-P', () => (this.menuPaused ? this.resume() : this.pause()));
+    // Auto-pause when the window loses focus (alt-tab, clicking elsewhere).
+    const onBlur = () => this.pause();
+    this.game.events.on(Phaser.Core.Events.BLUR, onBlur);
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.game.events.off(Phaser.Core.Events.BLUR, onBlur));
+  }
+
+  private pause(): void {
+    // Not while dying, on the game-over screen, or choosing an upgrade.
+    if (this.menuPaused || this.gameOver || this.paused || !this.player.alive) return;
+    this.menuPaused = true;
+    this.tweens.pauseAll();
+    this.time.paused = true;
+    this.anims.pauseAll();
+
+    const cx = GAME_WIDTH / 2;
+    const d = DEPTH.ui + 20;
+    this.pauseLayer = [
+      this.add.rectangle(0, 0, GAME_WIDTH, GAME_HEIGHT, COLOR_NUM.shade, 0.65).setOrigin(0).setDepth(d),
+      this.add.text(cx, 250, 'PAUSED', textStyle(24)).setOrigin(0.5).setDepth(d),
+    ];
+    const choice = { shipId: this.player.ship.id, skin: this.player.skin };
+    this.pauseMenu = new Menu(
+      this,
+      cx,
+      310,
+      [
+        { label: 'RESUME', action: () => this.resume() },
+        { label: 'RESTART', action: () => this.leavePause(() => this.scene.restart(choice)) },
+        { label: 'QUIT TO TITLE', action: () => this.leavePause(() => this.scene.start(SCENES.Title)) },
+      ],
+      { depth: d, size: 8, spacing: 20, armMs: 150 },
+    );
+  }
+
+  private resume(): void {
+    if (!this.menuPaused) return;
+    this.pauseMenu?.destroy();
+    this.pauseMenu = null;
+    for (const o of this.pauseLayer) o.destroy();
+    this.pauseLayer = [];
+    this.menuPaused = false;
+    this.tweens.resumeAll();
+    this.time.paused = false;
+    this.anims.resumeAll();
+  }
+
+  /** Unfreeze global state (animations are game-wide) before leaving the scene. */
+  private leavePause(go: () => void): void {
+    this.resume();
+    go();
   }
 
   // ----------------------------------------------- kills, pickups, bombs
@@ -331,17 +424,17 @@ export class GameScene extends Phaser.Scene {
 
   /** Small rising label (pickup names, bonus points). */
   private floatText(x: number, y: number, text: string): void {
-    const t = this.add.text(x, y, text, { fontFamily: 'monospace', fontSize: '11px', color: '#ffd23f' }).setOrigin(0.5).setDepth(DEPTH.ui);
+    const t = this.add.text(x, y, text, textStyle(8, COLORS.gold)).setOrigin(0.5).setDepth(DEPTH.ui);
     this.tweens.add({ targets: t, y: y - 26, alpha: 0, duration: 900, ease: 'Cubic.Out', onComplete: () => t.destroy() });
   }
 
   // ---------------------------------------------------------------- dev
 
   private showHelp(): void {
-    let lines = 'MOVE wasd/arrows  FIRE z/space  FOCUS shift  BOMB x';
-    if (import.meta.env.DEV) lines += '\n[dev] 1/2 ship  C colour  F3 debug  V sprites  L bullet lab  B next boss';
+    let lines = 'MOVE ARROWS/WASD  FIRE Z/SPACE\nFOCUS SHIFT  BOMB X  PAUSE ESC';
+    if (import.meta.env.DEV) lines += '\n[DEV] 1/2 SHIP  C COLOUR  F3 DEBUG\nV SPRITES  L LAB  B NEXT BOSS';
     const help = this.add
-      .text(GAME_WIDTH / 2, GAME_HEIGHT - 8, lines, { ...TEXT, align: 'center' })
+      .text(GAME_WIDTH / 2, GAME_HEIGHT - 8, lines, textStyle(8, COLORS.accent, { align: 'center', lineSpacing: 6 }))
       .setOrigin(0.5, 1)
       .setDepth(DEPTH.ui);
     this.tweens.add({ targets: help, alpha: 0, delay: 6000, duration: 1000, onComplete: () => help.destroy() });

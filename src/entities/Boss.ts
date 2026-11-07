@@ -3,6 +3,7 @@ import { GAME_WIDTH } from '../config';
 import { Enemy, type EnemyContext } from './Enemy';
 import type { PatternDef } from '../bullets/Pattern';
 import { PHASE_THRESHOLDS, PHASE_TRANSITION_MS, bossHp, bossLook, bossPhases, type BossPhase } from '../data/bosses';
+import { textStyle } from '../ui/theme';
 
 const BAR_X = 72;
 const BAR_W = GAME_WIDTH - 144;
@@ -50,7 +51,7 @@ export class Boss extends Enemy {
     }
     this.bar = scene.add.graphics().setDepth(uiDepth);
     this.nameText = scene.add
-      .text(GAME_WIDTH / 2, BAR_Y - 14, this.look.title, { fontFamily: 'monospace', fontSize: '11px', color: '#ffffff' })
+      .text(GAME_WIDTH / 2, BAR_Y - 14, this.look.title, textStyle(8))
       .setOrigin(0.5)
       .setDepth(uiDepth);
   }

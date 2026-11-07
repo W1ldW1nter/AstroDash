@@ -1,8 +1,11 @@
 import Phaser from 'phaser';
+import '@fontsource/press-start-2p/latin-400.css'; // pixel font, bundled locally
 import { GAME_HEIGHT, GAME_WIDTH, SCENES, fitZoom } from './config';
 import { BootScene } from './scenes/BootScene';
 import { PreloadScene } from './scenes/PreloadScene';
 import { GameScene } from './scenes/GameScene';
+import { TitleScene } from './scenes/TitleScene';
+import { ShipSelectScene } from './scenes/ShipSelectScene';
 
 const game = new Phaser.Game({
   type: Phaser.AUTO,
@@ -21,7 +24,7 @@ const game = new Phaser.Game({
     default: 'arcade',
     arcade: { debug: false },
   },
-  scene: [BootScene, PreloadScene, GameScene],
+  scene: [BootScene, PreloadScene, TitleScene, ShipSelectScene, GameScene],
 });
 
 window.addEventListener('resize', () => game.scale.setZoom(fitZoom()));

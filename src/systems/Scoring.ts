@@ -20,6 +20,7 @@ export class Scoring {
   score = 0;
   chain = 0;
   grazes = 0;
+  kills = 0;
   /** ms left on the 2x score pickup. */
   doubleScore = 0;
   readonly highScore: number;
@@ -50,6 +51,7 @@ export class Scoring {
 
   /** Award points for a kill; returns the points actually added. */
   kill(basePoints: number): number {
+    this.kills++;
     this.chain++;
     this.chainTimer = CHAIN_WINDOW_MS;
     return this.add(basePoints);
@@ -100,7 +102,8 @@ export class Scoring {
   }
 }
 
-function loadHighScores(): Record<string, number> {
+/** Saved high scores, keyed by ship id. */
+export function loadHighScores(): Record<string, number> {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     return raw ? (JSON.parse(raw) as Record<string, number>) : {};

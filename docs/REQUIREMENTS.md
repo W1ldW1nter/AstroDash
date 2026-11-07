@@ -16,6 +16,9 @@ Top-down, vertical-scrolling retro bullet-hell shooter built with **Phaser 3 + T
 | Ship stats | Tunable in `src/data/ships.ts` |
 | Enemy bullets | Mostly pink/red/white (player shots are blue/yellow). Hitboxes ~60-70% of the art. Drawn above enemies, below the player |
 | Bullet engine | Fixed pool of 3000, swap-remove active list; patterns are data (`src/data/patterns.ts`). Measured: ~1450 bullets at 2.3 ms/frame avg (budget 16.7 ms) |
+| Flow | Boot (waits for font) → Preload → Title → Ship Select → Game. Pause: Esc/P, auto on window blur (Resume / Restart / Quit). Game over panel: score, best, wave, kills, grazes, time + Retry / Change ship / Title |
+| UI style | "Press Start 2P" pixel font, bundled via @fontsource (no runtime CDN). Sizes in multiples of 8, 1px hard shadow. Shared styles in `src/ui/theme.ts`; reusable keyboard/mouse `Menu` |
+| Ship select | Stat bars derived from `ships.ts`, colour swatches, remembers last ship/colour in the browser |
 | Dev tools | **Dev builds only** (`npm run dev`); stripped from `npm run build`. Keys: 1/2 ship, C colour, F3 debug overlay, V sprite viewer, L bullet lab (attacks, stress test, hitbox view), B next boss. `window.game` console handle |
 | Survivability | Gunship: 5 lives, no shield. Fighter: 3 lives + shield that absorbs 1 hit and recharges (5 s). 2.5 s invulnerability after respawn, 0.8 s after a shield break |
 | Damage | Both ships deal 1 damage per bullet, so enemy HP = bullets to kill |
@@ -85,7 +88,7 @@ Top-down, vertical-scrolling retro bullet-hell shooter built with **Phaser 3 + T
 | 4 ✅ | Wave director | Template-based endless waves with a rising difficulty budget; playable loop |
 | 5 ✅ | Boss rotation | Multi-phase boss every N waves, health bar, difficulty tier increase |
 | 6 ✅ | Scoring, pickups & bombs | All pickups, bomb, multiplier, graze, saved high scores |
-| 7 | Ship select, flow & UI | Title, ship/colour select, pause, game over, sprite-based HUD |
+| 7 ✅ | Ship select, flow & UI | Title, ship/colour select, pause, game over, sprite-based HUD |
 | 8 | Juice & audio | Shake, hit-stop, flashes, SFX, music |
 | 9 | Polish & deploy | Tuning, settings, gamepad, local leaderboard, static deploy |
 

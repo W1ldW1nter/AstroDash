@@ -3,6 +3,7 @@ import { GAME_HEIGHT, GAME_WIDTH, SCENES } from '../config';
 import { ATLASES, BACKGROUNDS } from '../assets/manifest';
 import { registerAnimations } from '../assets/animations';
 import { createGeneratedTextures } from '../assets/generated';
+import { COLORS, textStyle } from '../ui/theme';
 
 /** Loads every texture, shows a progress bar, registers animations. */
 export class PreloadScene extends Phaser.Scene {
@@ -16,7 +17,7 @@ export class PreloadScene extends Phaser.Scene {
     const y = GAME_HEIGHT / 2;
     const frame = this.add.rectangle(x - 2, y - 2, barW + 4, 10, 0x000000).setOrigin(0).setStrokeStyle(1, 0x5b6ee1);
     const fill = this.add.rectangle(x, y, 0, 6, 0x9bd8ff).setOrigin(0);
-    this.add.text(GAME_WIDTH / 2, y - 14, 'LOADING', { fontFamily: 'monospace', fontSize: '10px', color: '#9bd8ff' }).setOrigin(0.5);
+    this.add.text(GAME_WIDTH / 2, y - 16, 'LOADING', textStyle(8, COLORS.accent)).setOrigin(0.5);
     this.load.on(Phaser.Loader.Events.PROGRESS, (p: number) => (fill.width = barW * p));
     this.load.once(Phaser.Loader.Events.COMPLETE, () => frame.destroy());
 
@@ -32,6 +33,6 @@ export class PreloadScene extends Phaser.Scene {
   create(): void {
     registerAnimations(this.anims);
     createGeneratedTextures(this);
-    this.scene.start(SCENES.Game);
+    this.scene.start(SCENES.Title);
   }
 }

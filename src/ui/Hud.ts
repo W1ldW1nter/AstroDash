@@ -3,9 +3,10 @@ import { GAME_WIDTH } from '../config';
 import type { Player } from '../entities/Player';
 import type { Scoring } from '../systems/Scoring';
 import { BARRIER_MS, DOUBLE_SCORE_MS, MAX_BOMBS, RAPID_FIRE_MS } from '../data/pickups';
+import { COLORS, textStyle } from './theme';
 
-const TEXT = { fontFamily: 'monospace', fontSize: '12px', color: '#ffffff' };
-const SMALL = { fontFamily: 'monospace', fontSize: '10px', color: '#8b9bb4' };
+
+
 
 /**
  * HUD:
@@ -42,11 +43,11 @@ export class Hud {
       double: scene.add.image(0, 0, 'ui', 'icon_double').setScale(0.5).setDepth(depth),
     };
     const R = GAME_WIDTH - 8;
-    this.scoreText = scene.add.text(R, 6, '0', TEXT).setOrigin(1, 0).setDepth(depth);
-    this.hiText = scene.add.text(R, 22, '', SMALL).setOrigin(1, 0).setDepth(depth);
-    this.multText = scene.add.text(R, 35, '', { ...SMALL, color: '#ffd23f' }).setOrigin(1, 0).setDepth(depth);
-    this.grazeText = scene.add.text(R, 48, '', SMALL).setOrigin(1, 0).setDepth(depth);
-    this.waveText = scene.add.text(GAME_WIDTH / 2, 8, '', { ...TEXT, color: '#9bd8ff' }).setOrigin(0.5, 0).setDepth(depth);
+    this.scoreText = scene.add.text(R, 6, '0', textStyle(16)).setOrigin(1, 0).setDepth(depth);
+    this.hiText = scene.add.text(R, 26, '', textStyle(8, COLORS.dim)).setOrigin(1, 0).setDepth(depth);
+    this.multText = scene.add.text(R, 40, '', textStyle(8, COLORS.gold)).setOrigin(1, 0).setDepth(depth);
+    this.grazeText = scene.add.text(R, 54, '', textStyle(8, COLORS.dim)).setOrigin(1, 0).setDepth(depth);
+    this.waveText = scene.add.text(GAME_WIDTH / 2, 8, '', textStyle(8, COLORS.accent)).setOrigin(0.5, 0).setDepth(depth);
   }
 
   update(player: Player, scoring: Scoring, wave: number): void {
