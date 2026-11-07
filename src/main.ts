@@ -1,8 +1,8 @@
 import Phaser from 'phaser';
-import { GAME_HEIGHT, GAME_WIDTH, fitZoom } from './config';
+import { GAME_HEIGHT, GAME_WIDTH, SCENES, fitZoom } from './config';
 import { BootScene } from './scenes/BootScene';
 import { PreloadScene } from './scenes/PreloadScene';
-import { SpriteViewerScene } from './scenes/SpriteViewerScene';
+import { GameScene } from './scenes/GameScene';
 
 const game = new Phaser.Game({
   type: Phaser.AUTO,
@@ -21,10 +21,18 @@ const game = new Phaser.Game({
     default: 'arcade',
     arcade: { debug: false },
   },
-  scene: [BootScene, PreloadScene, SpriteViewerScene],
+  scene: [BootScene, PreloadScene, GameScene],
 });
 
 window.addEventListener('resize', () => game.scale.setZoom(fitZoom()));
 
-// Handy for poking at the game from the browser console during development.
-if (import.meta.env.DEV) (window as unknown as { game: Phaser.Game }).game = game;
+// Dev builds only: the bullet lab and sprite viewer scenes, and `window.game`
+// for poking at the game from the browser console. Dynamic imports inside this
+// branch mean production builds don't contain the dev tools at all.
+if (import.meta.env.DEV) {
+  (window as unknown as { game: Phaser.Game }).game = game;
+  void Promise.all([import('./scenes/BulletLabScene'), import('./scenes/SpriteViewerScene')]).then(([lab, viewer]) => {
+    game.scene.add(SCENES.BulletLab, lab.BulletLabScene);
+    game.scene.add(SCENES.SpriteViewer, viewer.SpriteViewerScene);
+  });
+}

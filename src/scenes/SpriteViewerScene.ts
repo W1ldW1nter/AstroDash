@@ -2,12 +2,14 @@ import Phaser from 'phaser';
 import { GAME_HEIGHT, GAME_WIDTH, SCENES } from '../config';
 import { ATLASES, type AtlasKey } from '../assets/manifest';
 import { ANIMS } from '../assets/animations';
+import { ParallaxBackground } from '../world/ParallaxBackground';
 
 /**
  * Debug scene for Milestone 0: browse every sliced frame and animation.
  *   Left/Right (or click the arrows) - change page
  *   Mouse wheel / Up/Down            - scroll
  *   Hover a sprite                   - show its atlas key, frame name and size
+ *   Esc                              - back to the game
  */
 
 type Page =
@@ -30,7 +32,7 @@ export class SpriteViewerScene extends Phaser.Scene {
   private leaving = false;
   private contentBottom = 0;
   private info!: Phaser.GameObjects.Text;
-  private layers: { sprite: Phaser.GameObjects.TileSprite; speed: number }[] = [];
+  private background: ParallaxBackground | null = null;
 
   constructor() {
     super(SCENES.SpriteViewer);
@@ -38,7 +40,7 @@ export class SpriteViewerScene extends Phaser.Scene {
 
   init(data: { page?: number }): void {
     this.pageIndex = Phaser.Math.Wrap(data.page ?? 0, 0, PAGES.length);
-    this.layers = [];
+    this.background = null;
     this.leaving = false;
     this.contentBottom = 0;
   }
@@ -53,26 +55,13 @@ export class SpriteViewerScene extends Phaser.Scene {
   }
 
   update(_time: number, delta: number): void {
-    for (const l of this.layers) l.sprite.tilePositionY -= (l.speed * delta) / 1000;
+    this.background?.update(delta);
   }
 
   // ---------------------------------------------------------------- pages
 
   private buildParallax(): void {
-    // Back to front, px/sec. Background scrolls down = ship flies up.
-    const layerDefs = [
-      { key: 'bg_space', speed: 4 },
-      { key: 'bg_nebula_1', speed: 10 },
-      { key: 'bg_nebula_2', speed: 16 },
-      { key: 'bg_small_stars', speed: 28 },
-      { key: 'bg_stars', speed: 48 },
-    ];
-    for (const d of layerDefs) {
-      const sprite = this.add.tileSprite(0, 0, GAME_WIDTH, GAME_HEIGHT, d.key).setOrigin(0);
-      // Tiles are 320px wide on a 360px screen: center them so the horizontal seams sit at the edges.
-      sprite.tilePositionX = (sprite.texture.getSourceImage().width - GAME_WIDTH) / 2;
-      this.layers.push({ sprite, speed: d.speed });
-    }
+    this.background = new ParallaxBackground(this);
 
     // Exhaust is added first so it renders underneath the ship.
     const shipX = GAME_WIDTH / 2;
@@ -172,6 +161,7 @@ export class SpriteViewerScene extends Phaser.Scene {
     kb.on('keydown-RIGHT', () => this.goTo(1));
     kb.on('keydown-UP', () => this.scrollBy(-40));
     kb.on('keydown-DOWN', () => this.scrollBy(40));
+    kb.on('keydown-ESC', () => this.scene.start(SCENES.Game));
     this.input.on('wheel', (_p: unknown, _o: unknown, _dx: number, dy: number) => this.scrollBy(dy * 0.5));
   }
 

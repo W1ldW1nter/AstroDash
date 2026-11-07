@@ -1,10 +1,16 @@
-/** Internal (logical) resolution. Everything is drawn at this size, then scaled up. */
-export const GAME_WIDTH = 360;
-export const GAME_HEIGHT = 480;
+/**
+ * Internal (logical) resolution. Everything is drawn at this size, then scaled up.
+ * 504x672 (3:4) keeps sprites at 1:1 pixels while leaving enough room to dodge:
+ * it was raised from 360x480, where the ships felt too big for the play area.
+ */
+export const GAME_WIDTH = 504;
+export const GAME_HEIGHT = 672;
 
 export const SCENES = {
   Boot: 'Boot',
   Preload: 'Preload',
+  Game: 'Game',
+  BulletLab: 'BulletLab',
   SpriteViewer: 'SpriteViewer',
 } as const;
 

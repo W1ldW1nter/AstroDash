@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { GAME_HEIGHT, GAME_WIDTH, SCENES } from '../config';
 import { ATLASES, BACKGROUNDS } from '../assets/manifest';
 import { registerAnimations } from '../assets/animations';
+import { createGeneratedTextures } from '../assets/generated';
 
 /** Loads every texture, shows a progress bar, registers animations. */
 export class PreloadScene extends Phaser.Scene {
@@ -30,6 +31,7 @@ export class PreloadScene extends Phaser.Scene {
 
   create(): void {
     registerAnimations(this.anims);
-    this.scene.start(SCENES.SpriteViewer);
+    createGeneratedTextures(this);
+    this.scene.start(SCENES.Game);
   }
 }

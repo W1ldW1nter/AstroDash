@@ -7,15 +7,29 @@ Top-down, vertical-scrolling retro bullet-hell shooter built with **Phaser 3 + T
 | Topic | Decision |
 |---|---|
 | Tooling | Vite + TypeScript, Phaser 3 |
-| Resolution | 360×480 internal (3:4 vertical), pixel-art scaling (integer when the window allows ≥2×) |
+| Resolution | 504×672 internal (3:4 vertical), pixel-art scaling (integer when the window allows ≥2×). Raised from 360×480 because ships felt too big; sprites stay at 1:1 pixels, never scaled down |
 | Game mode | **Endless survival** — escalating waves, boss every N waves |
 | Ships | **2 classes**: Fighter (fast, focused shots) and Gunship (slower, wide spread). 6 colours each as cosmetic skins |
 | Art | Existing pack in `assets/` sliced into atlases by `tools/slice-sprites.ps1` |
+| Movement | Snappy, no inertia; diagonals normalized; Shift = focus (slower, hitbox shown, tighter volley) |
+| Controls | WASD/arrows move, Z/Space fire, Shift focus, X bomb (M6) |
+| Ship stats | Tunable in `src/data/ships.ts` |
+| Enemy bullets | Mostly pink/red/white (player shots are blue/yellow). Hitboxes ~60-70% of the art. Drawn above enemies, below the player |
+| Bullet engine | Fixed pool of 3000, swap-remove active list; patterns are data (`src/data/patterns.ts`). Measured: ~1450 bullets at 2.3 ms/frame avg (budget 16.7 ms) |
+| Dev tools | **Dev builds only** (`npm run dev`); stripped from `npm run build`. Keys: 1/2 ship, C colour, F3 debug overlay, V sprite viewer, L bullet lab (attacks, stress test, hitbox view), B next boss. `window.game` console handle |
+| Survivability | Gunship: 5 lives, no shield. Fighter: 3 lives + shield that absorbs 1 hit and recharges (5 s). 2.5 s invulnerability after respawn, 0.8 s after a shield break |
+| Damage | Both ships deal 1 damage per bullet, so enemy HP = bullets to kill |
+| Enemy HP | small 1 (most common, fodder), medium 3, large 15, heavy/miniboss 150 with health bar |
+| Pacing | Fast ramp (~5 min runs). Waves ~20 s; budget 28 + 12/wave; enemy bullet speed +6%/wave, fire rate +8%/wave (capped). Enemy HP never scales. Tuning in `src/data/waves.ts` |
+| Wave pattern | Miniboss every 2nd wave, boss every 6th. While a miniboss/boss is alive, regular spawns run at 70% |
+| Boss | One design, re-fought each cycle in the next colour (red → orange → pink, then repeats as MK II...). HP 600 +300/cycle; +25% bullets and -10% gaps per cycle. 3 phases at 66%/33% HP with a 1.6 s invulnerable, bullet-clearing transition; final phase uses the dark sprite. Boss death destroys all enemies; upgrade screen 1.6 s later (`src/data/bosses.ts`) |
+| Gunship balance | 1.2 damage per bullet, shots 20% bigger (visual and hit circle) |
+| Pickups | Heals and temporary boosts only, dropped by enemies (small 2.5%, medium 10%, large 35%, miniboss 2, boss 3): +1 life, barrier (absorbs 1 hit, 10 s), +1 bomb, rapid fire (x1.6, 8 s), 2x score (10 s). Wasted ones (full lives / max bombs) aren't dropped, or give 2000 pts (`src/data/pickups.ts`) |
+| Bombs | X key. Start with 2, +1 per pickup, max 5, topped up to 2 on respawn. Erases bullets for 1 s, 20 damage to all on-screen enemies, 1.5 s invulnerability |
+| Scoring | Kill chain (2 s window) raises the multiplier up to x3; 2x pickup doubles it. Graze (bullet within 14 px of the hitbox) = 20 pts. Wave clear bonus 250 x wave, doubled with no hit. High score per ship saved in the browser |
+| Upgrades | Pick 1 of 3 after each boss: rapid fire, damage, wide guns, thrusters, bullet speed, +1 life, shield. Per-run, capped per upgrade (`src/data/upgrades.ts`) |
 
-### Open questions (to settle before Milestone 4)
-- Run pacing: fast ramp (~5 min runs) or slow ramp (20+ min)?
-- Between bosses: pickups only, or a "pick 1 of 3 upgrades" screen?
-- Survivability: classic lives, or one life + shield bar?
+### Open questions
 - Audio source: no SFX/music in the pack yet.
 
 ## Functional requirements
@@ -65,12 +79,12 @@ Top-down, vertical-scrolling retro bullet-hell shooter built with **Phaser 3 + T
 | # | Milestone | Done when |
 |---|---|---|
 | **0** ✅ | **Setup & asset pipeline** | Vite+TS+Phaser runs; sheets sliced into named atlases; sprite viewer shows every frame & animation |
-| 1 | Player & world | Both ship classes move (with focus mode) and shoot; exhaust; parallax; screen bounds |
-| 2 | Bullet engine | Pooled bullets, pattern system, debug overlay (FPS, bullet count); 1000 bullets @ 60 FPS |
-| 3 | Enemies & combat | Enemy types on paths firing patterns; collisions, damage, explosions, lives, i-frames |
-| 4 | Wave director | Template-based endless waves with a rising difficulty budget; playable loop |
-| 5 | Boss rotation | Multi-phase boss every N waves, health bar, difficulty tier increase |
-| 6 | Scoring, pickups & bombs | All pickups, bomb, multiplier, graze, saved high scores |
+| 1 ✅ | Player & world | Both ship classes move (with focus mode) and shoot; exhaust; parallax; screen bounds |
+| 2 ✅ | Bullet engine | Pooled bullets, pattern system, debug overlay (FPS, bullet count); 1000 bullets @ 60 FPS |
+| 3 ✅ | Enemies & combat | Enemy types on paths firing patterns; collisions, damage, explosions, lives, i-frames |
+| 4 ✅ | Wave director | Template-based endless waves with a rising difficulty budget; playable loop |
+| 5 ✅ | Boss rotation | Multi-phase boss every N waves, health bar, difficulty tier increase |
+| 6 ✅ | Scoring, pickups & bombs | All pickups, bomb, multiplier, graze, saved high scores |
 | 7 | Ship select, flow & UI | Title, ship/colour select, pause, game over, sprite-based HUD |
 | 8 | Juice & audio | Shake, hit-stop, flashes, SFX, music |
 | 9 | Polish & deploy | Tuning, settings, gamepad, local leaderboard, static deploy |
