@@ -3,6 +3,7 @@ import { GAME_HEIGHT, GAME_WIDTH } from '../config';
 import type { Player } from '../entities/Player';
 import type { Upgrade } from '../data/upgrades';
 import { COLORS, COLOR_NUM, textStyle } from './theme';
+import { sfx } from '../audio/sfx';
 
 const CARD_W = 140;
 const CARD_H = 168;
@@ -59,7 +60,7 @@ export class UpgradePicker {
       }
       group.add([box, icon, name, desc, pips]);
       box.setInteractive({ useHandCursor: true });
-      box.on('pointerover', () => this.select(i));
+      box.on('pointerover', () => this.move(i));
       box.on('pointerdown', () => this.confirm(i));
       this.root.add(group);
       this.cards.push({ box, group });
@@ -73,8 +74,8 @@ export class UpgradePicker {
 
     this.keyHandler = (e: KeyboardEvent) => {
       const k = e.key.toLowerCase();
-      if (k === 'arrowleft' || k === 'a') this.select(this.selected - 1);
-      else if (k === 'arrowright' || k === 'd') this.select(this.selected + 1);
+      if (k === 'arrowleft' || k === 'a') this.move(this.selected - 1);
+      else if (k === 'arrowright' || k === 'd') this.move(this.selected + 1);
       else if (k === 'z' || k === ' ' || k === 'enter') this.confirm(this.selected);
     };
     scene.input.keyboard!.on('keydown', this.keyHandler);
@@ -90,9 +91,16 @@ export class UpgradePicker {
     });
   }
 
+  private move(i: number): void {
+    const before = this.selected;
+    this.select(i);
+    if (!this.done && this.selected !== before) sfx('menuMove');
+  }
+
   private confirm(i: number): void {
     if (!this.armed || this.done) return;
     this.select(i);
+    sfx('upgrade');
     this.done = true;
     this.scene.input.keyboard!.off('keydown', this.keyHandler);
     const picked = this.options[i];

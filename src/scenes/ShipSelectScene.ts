@@ -5,6 +5,9 @@ import { SHIP_CLASSES, SKINS, type ShipClass, type Skin } from '../data/ships';
 import { loadShipChoice, saveShipChoice } from '../data/prefs';
 import { makeShipPreview } from '../ui/shipPreview';
 import { COLORS, COLOR_NUM, textStyle } from '../ui/theme';
+import { bindMuteKey } from '../ui/muteKey';
+import { sfx } from '../audio/sfx';
+import { music } from '../audio/music';
 
 const SHIP_IDS: ShipClass['id'][] = ['fighter', 'gunship'];
 const TAGLINE: Record<ShipClass['id'], string> = {
@@ -70,6 +73,8 @@ export class ShipSelectScene extends Phaser.Scene {
 
     this.refresh();
     this.input.keyboard!.on('keydown', (e: KeyboardEvent) => this.onKey(e));
+    bindMuteKey(this);
+    music.play('title');
   }
 
   update(_t: number, delta: number): void {
@@ -189,22 +194,27 @@ export class ShipSelectScene extends Phaser.Scene {
         break;
       case 'Escape':
       case 'Backspace':
+        sfx('menuBack');
         this.scene.start(SCENES.Title);
         break;
     }
   }
 
   private setShip(i: number): void {
-    this.shipIndex = Phaser.Math.Wrap(i, 0, SHIP_IDS.length);
+    const next = Phaser.Math.Wrap(i, 0, SHIP_IDS.length);
+    if (next !== this.shipIndex) sfx('menuMove');
+    this.shipIndex = next;
     this.refresh();
   }
 
   private setSkin(skin: Skin): void {
+    if (skin !== this.skin) sfx('menuMove');
     this.skin = skin;
     this.refresh();
   }
 
   private launch(): void {
+    sfx('launch');
     const choice = { shipId: SHIP_IDS[this.shipIndex], skin: this.skin };
     saveShipChoice(choice);
     this.scene.start(SCENES.Game, choice);

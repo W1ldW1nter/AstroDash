@@ -20,6 +20,9 @@ import { Scoring } from '../systems/Scoring';
 import { DROPS, MAX_BOMBS, PICKUPS, type PickupId } from '../data/pickups';
 import { Menu } from '../ui/Menu';
 import { COLORS, COLOR_NUM, textStyle } from '../ui/theme';
+import { bindMuteKey } from '../ui/muteKey';
+import { sfx } from '../audio/sfx';
+import { music } from '../audio/music';
 
 /** Render order. */
 export const DEPTH = {
@@ -49,6 +52,8 @@ const BOMB_INVULN_MS = 1500;
 const GRAZE_RADIUS = 14;
 /** Points given instead when a pickup can't be used (full lives, max bombs). */
 const SPARE_PICKUP_POINTS = 2000;
+/** Hit-stop: gameplay freezes for a few frames on big moments so they land harder (ms). */
+const HITSTOP = { shield: 50, death: 140, bomb: 60, miniboss: 70, phase: 100, boss: 220 } as const;
 
 /**
  * Main gameplay scene: endless waves (miniboss every 2nd, boss every 6th,
@@ -81,6 +86,8 @@ export class GameScene extends Phaser.Scene {
   /** Time survived this run (ms), excluding pauses and the upgrade screen. */
   private runTime = 0;
   private bannerTexts: Phaser.GameObjects.Text[] = [];
+  /** ms of hit-stop left. */
+  private hitStopMs = 0;
   private startShip: ShipClass['id'] = 'fighter';
   private startSkin: Skin = 'blue';
 
@@ -102,6 +109,7 @@ export class GameScene extends Phaser.Scene {
     this.runTime = 0;
     this.bombTimer = 0;
     this.bannerTexts = [];
+    this.hitStopMs = 0;
     this.scoring = new Scoring(this.startShip);
 
     this.controls = new Controls(this);
@@ -115,11 +123,23 @@ export class GameScene extends Phaser.Scene {
     this.pickups = new PickupManager(this, DEPTH.pickups);
     this.pickups.onCollect = (id, x, y) => this.collectPickup(id, x, y);
     this.enemies.onKilled = (e) => this.onEnemyKilled(e);
-    this.enemies.onBossPhase = (_boss, phase) => this.banner(phase === 2 ? 'FINAL PHASE' : `PHASE ${phase + 1}`, '', COLORS.gold);
+    this.enemies.onBossPhase = (_boss, phase) => {
+      this.banner(phase === 2 ? 'FINAL PHASE' : `PHASE ${phase + 1}`, '', COLORS.gold);
+      sfx('phase');
+      this.hitStop(HITSTOP.phase);
+      this.cameras.main.flash(150, 255, 210, 63);
+      this.cameras.main.shake(300, 0.008);
+    };
     this.director = new WaveDirector(this.enemies, difficulty, {
-      onWaveStart: (wave, kind) => this.banner(`WAVE ${wave}`, kind === 'boss' ? 'BOSS WAVE' : kind === 'miniboss' ? 'MINIBOSS WAVE' : ''),
-      onBigEnemy: (kind) =>
-        this.banner('WARNING', kind === 'boss' ? bossLook(Math.floor((this.director.wave - 1) / 6)).title : 'MINIBOSS APPROACHING', COLORS.danger),
+      onWaveStart: (wave, kind) => {
+        this.banner(`WAVE ${wave}`, kind === 'boss' ? 'BOSS WAVE' : kind === 'miniboss' ? 'MINIBOSS WAVE' : '');
+        sfx('wave');
+      },
+      onBigEnemy: (kind) => {
+        this.banner('WARNING', kind === 'boss' ? bossLook(Math.floor((this.director.wave - 1) / 6)).title : 'MINIBOSS APPROACHING', COLORS.danger);
+        sfx('warning');
+        if (kind === 'boss') music.play('boss');
+      },
       onWaveCleared: (wave, kind, resume) => this.onWaveCleared(wave, kind, resume),
     });
 
@@ -128,10 +148,17 @@ export class GameScene extends Phaser.Scene {
     this.showHelp();
     this.bindPauseKeys();
     this.bindDevKeys();
+    bindMuteKey(this);
+    music.duck(false);
+    music.play('game');
   }
 
   update(_time: number, delta: number): void {
     if (this.menuPaused) return;
+    if (this.hitStopMs > 0) {
+      this.hitStopMs -= delta;
+      return;
+    }
     // Clamp huge frame gaps (tab switch, breakpoint) so nothing teleports.
     const dt = Math.min(delta, 50);
     this.background.update(dt);
@@ -172,6 +199,7 @@ export class GameScene extends Phaser.Scene {
     const { bonus, noHit } = this.scoring.waveCleared(wave);
     if (kind !== 'boss') {
       this.banner('WAVE CLEAR', `+${bonus}${noHit ? '  NO-HIT BONUS x2' : ''}`, COLORS.accent);
+      sfx('waveClear');
       return;
     }
     // Boss down: let the explosions play out, then freeze the action and offer 1 of 3 upgrades.
@@ -180,13 +208,21 @@ export class GameScene extends Phaser.Scene {
       this.enemyBullets.clear();
       this.playerBullets.clear();
       this.paused = true;
+      music.play('game');
+      music.duck(true);
       new UpgradePicker(this, this.player, rollUpgrades(this.player), DEPTH.ui + 10, (u) => {
         applyUpgrade(this.player, u);
         this.paused = false;
+        music.duck(false);
         this.banner(u.name.toUpperCase(), 'UPGRADE ACQUIRED', COLORS.gold);
         resume();
       });
     });
+  }
+
+  /** Freeze gameplay for a moment (tweens, animations and the camera keep going). */
+  private hitStop(ms: number): void {
+    this.hitStopMs = Math.max(this.hitStopMs, ms);
   }
 
   /** Big centered text that fades in and out. */
@@ -224,7 +260,10 @@ export class GameScene extends Phaser.Scene {
       return;
     }
     // Close call: bullets brushing past the hitbox score graze points.
-    this.enemyBullets.graze(h.x, h.y, GRAZE_RADIUS, () => this.scoring.graze());
+    this.enemyBullets.graze(h.x, h.y, GRAZE_RADIUS, () => {
+      this.scoring.graze();
+      sfx('graze');
+    });
   }
 
   private onPlayerHit(result: HitResult): void {
@@ -234,10 +273,15 @@ export class GameScene extends Phaser.Scene {
       this.enemyBullets.clearRadius(x, y, SHIELD_CLEAR_RADIUS);
       this.cameras.main.shake(120, 0.005);
       this.cameras.main.flash(80, 120, 200, 255);
+      sfx('shieldBreak');
+      this.hitStop(HITSTOP.shield);
       return;
     }
 
     // Ship destroyed.
+    sfx('playerDeath');
+    this.hitStop(HITSTOP.death);
+    this.cameras.main.flash(140, 255, 60, 90);
     this.enemies.explode(x, y, 'teal');
     this.time.delayedCall(90, () => this.enemies.explode(x - 8, y + 6, 'teal'));
     this.time.delayedCall(180, () => this.enemies.explode(x + 8, y - 4, 'teal'));
@@ -251,7 +295,11 @@ export class GameScene extends Phaser.Scene {
       });
     } else {
       this.gameOver = true;
-      this.time.delayedCall(900, () => this.showGameOver());
+      music.stop();
+      this.time.delayedCall(900, () => {
+        music.play('gameover');
+        this.showGameOver();
+      });
     }
   }
 
@@ -317,6 +365,8 @@ export class GameScene extends Phaser.Scene {
     // Not while dying, on the game-over screen, or choosing an upgrade.
     if (this.menuPaused || this.gameOver || this.paused || !this.player.alive) return;
     this.menuPaused = true;
+    sfx('pause');
+    music.duck(true);
     this.tweens.pauseAll();
     this.time.paused = true;
     this.anims.pauseAll();
@@ -348,6 +398,7 @@ export class GameScene extends Phaser.Scene {
     for (const o of this.pauseLayer) o.destroy();
     this.pauseLayer = [];
     this.menuPaused = false;
+    music.duck(false);
     this.tweens.resumeAll();
     this.time.paused = false;
     this.anims.resumeAll();
@@ -366,9 +417,11 @@ export class GameScene extends Phaser.Scene {
       this.scoring.kill(e.def.score * (1 + e.cycle)); // later bosses are worth more
       this.enemyBullets.clear();
       this.cameras.main.flash(250, 255, 255, 255);
+      this.hitStop(HITSTOP.boss);
       this.enemies.killAll(); // the boss's escorts go down with it
     } else {
       this.scoring.kill(e.def.score);
+      if (e.def.healthBar) this.hitStop(HITSTOP.miniboss);
     }
 
     // Drops: heals and temporary boosts. Skip ones that would be wasted.
@@ -386,20 +439,28 @@ export class GameScene extends Phaser.Scene {
     let label = PICKUPS[id].name;
     switch (id) {
       case 'health':
-        if (!p.heal()) label = `+${this.scoring.add(SPARE_PICKUP_POINTS)}`;
+        if (p.heal()) sfx('life');
+        else {
+          label = `+${this.scoring.add(SPARE_PICKUP_POINTS)}`;
+          sfx('pickup');
+        }
         break;
       case 'shield':
         p.startBarrier();
+        sfx('powerup');
         break;
       case 'bomb':
         if (p.bombs >= MAX_BOMBS) label = `+${this.scoring.add(SPARE_PICKUP_POINTS)}`;
         else p.addBomb();
+        sfx('pickup');
         break;
       case 'rapid':
         p.startRapidFire();
+        sfx('powerup');
         break;
       case 'double':
         this.scoring.startDoubleScore();
+        sfx('powerup');
         break;
     }
     this.floatText(x, y - 10, label);
@@ -412,6 +473,8 @@ export class GameScene extends Phaser.Scene {
     this.enemyBullets.clear();
     this.enemies.damageAll(BOMB_DAMAGE);
     this.player.invulnerable = Math.max(this.player.invulnerable, BOMB_INVULN_MS);
+    sfx('bomb');
+    this.hitStop(HITSTOP.bomb);
 
     // Expanding shockwave ring + flash.
     const ring = this.add.circle(x, y, 10).setStrokeStyle(4, 0xffffff, 1).setDepth(DEPTH.effects);
@@ -431,7 +494,7 @@ export class GameScene extends Phaser.Scene {
   // ---------------------------------------------------------------- dev
 
   private showHelp(): void {
-    let lines = 'MOVE ARROWS/WASD  FIRE Z/SPACE\nFOCUS SHIFT  BOMB X  PAUSE ESC';
+    let lines = 'MOVE ARROWS/WASD  FIRE Z/SPACE\nFOCUS SHIFT  BOMB X  PAUSE ESC  SOUND M';
     if (import.meta.env.DEV) lines += '\n[DEV] 1/2 SHIP  C COLOUR  F3 DEBUG\nV SPRITES  L LAB  B NEXT BOSS';
     const help = this.add
       .text(GAME_WIDTH / 2, GAME_HEIGHT - 8, lines, textStyle(8, COLORS.accent, { align: 'center', lineSpacing: 6 }))

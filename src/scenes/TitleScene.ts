@@ -7,6 +7,8 @@ import { loadHighScores } from '../systems/Scoring';
 import { SHIP_CLASSES } from '../data/ships';
 import { loadShipChoice } from '../data/prefs';
 import { makeShipPreview } from '../ui/shipPreview';
+import { bindMuteKey } from '../ui/muteKey';
+import { music } from '../audio/music';
 
 /** Title screen: logo, START, best score per ship, controls. */
 export class TitleScene extends Phaser.Scene {
@@ -50,8 +52,11 @@ export class TitleScene extends Phaser.Scene {
     });
 
     this.add
-      .text(cx, GAME_HEIGHT - 40, 'MOVE ARROWS/WASD  FIRE Z/SPACE\nFOCUS SHIFT  BOMB X  PAUSE ESC', textStyle(8, COLORS.dim, { align: 'center', lineSpacing: 6 }))
+      .text(cx, GAME_HEIGHT - 40, 'MOVE ARROWS/WASD  FIRE Z/SPACE\nFOCUS SHIFT  BOMB X  PAUSE ESC\nSOUND ON/OFF M', textStyle(8, COLORS.dim, { align: 'center', lineSpacing: 6 }))
       .setOrigin(0.5);
+
+    bindMuteKey(this);
+    music.play('title');
   }
 
   update(_t: number, delta: number): void {

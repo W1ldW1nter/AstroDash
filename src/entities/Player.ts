@@ -4,6 +4,7 @@ import type { Controls } from '../input/Controls';
 import { SHIP_CLASSES, type ShipClass, type Skin } from '../data/ships';
 import type { PlayerBullets } from './PlayerBullets';
 import { BARRIER_MS, MAX_BOMBS, RAPID_FIRE_FACTOR, RAPID_FIRE_MS, START_BOMBS } from '../data/pickups';
+import { sfx } from '../audio/sfx';
 
 /** How far the sprite may poke past the screen edge (keeps the hitbox reachable near walls). */
 const EDGE_OVERHANG = 6;
@@ -267,5 +268,6 @@ export class Player extends Phaser.GameObjects.Container {
     for (const shot of this.focusing ? s.focusShots : s.shots) {
       this.bullets.fire(this.x + shot.x, this.y + shot.y, shot.angle, s.bulletSpeed, s.bulletFrame, s.bulletDamage, s.bulletScale);
     }
+    sfx(s.id === 'gunship' ? 'shootHeavy' : 'shoot');
   }
 }

@@ -31,9 +31,8 @@ Top-down, vertical-scrolling retro bullet-hell shooter built with **Phaser 3 + T
 | Bombs | X key. Start with 2, +1 per pickup, max 5, topped up to 2 on respawn. Erases bullets for 1 s, 20 damage to all on-screen enemies, 1.5 s invulnerability |
 | Scoring | Kill chain (2 s window) raises the multiplier up to x3; 2x pickup doubles it. Graze (bullet within 14 px of the hitbox) = 20 pts. Wave clear bonus 250 x wave, doubled with no hit. High score per ship saved in the browser |
 | Upgrades | Pick 1 of 3 after each boss: rapid fire, damage, wide guns, thrusters, bullet speed, +1 life, shield. Per-run, capped per upgrade (`src/data/upgrades.ts`) |
-
-### Open questions
-- Audio source: no SFX/music in the pack yet.
+| Audio | Everything synthesized with WebAudio, no audio files. SFX in `src/audio/sfx.ts` (rate-limited per effect). Chiptune music as step-sequencer data in `src/audio/tracks.ts`: title, game, boss and a game-over jingle. Music ducks on pause/upgrade screen; all sound freezes on window blur. M toggles sound (remembered) |
+| Juice | Hit-stop (50–220 ms) on shield break, death, bomb, miniboss/boss kills and boss phase changes; impact sparks on enemy hits; camera shake and flashes scaled to the event |
 
 ## Functional requirements
 
@@ -88,8 +87,8 @@ Top-down, vertical-scrolling retro bullet-hell shooter built with **Phaser 3 + T
 | 4 ✅ | Wave director | Template-based endless waves with a rising difficulty budget; playable loop |
 | 5 ✅ | Boss rotation | Multi-phase boss every N waves, health bar, difficulty tier increase |
 | 6 ✅ | Scoring, pickups & bombs | All pickups, bomb, multiplier, graze, saved high scores |
-| 7 ✅ | Ship select, flow & UI | Title, ship/colour select, pause, game over, sprite-based HUD |
-| 8 | Juice & audio | Shake, hit-stop, flashes, SFX, music |
+| 7 ✅ | Ship select, flow & UI | Title, ship/colour select, pause, game over, pixel-font HUD |
+| 8 ✅ | Juice & audio | Shake, hit-stop, flashes, SFX, music |
 | 9 | Polish & deploy | Tuning, settings, gamepad, local leaderboard, static deploy |
 
 ## Asset pipeline

@@ -3,9 +3,27 @@ import { Enemy, type EnemyContext } from '../entities/Enemy';
 import { Boss } from '../entities/Boss';
 import type { PlayerBullets } from '../entities/PlayerBullets';
 import type { EnemyId, EnemyVariant, Movement } from '../data/enemies';
+import { sfx, type SfxName } from '../audio/sfx';
 
 const BAR_W = 52;
 const BAR_H = 4;
+/** Impact sparks where player shots hit. */
+const SPARK_MS = 90;
+const MAX_SPARKS = 48;
+
+const DEATH_SOUND: Record<EnemyId, SfxName> = {
+  small: 'explodeS',
+  medium: 'explodeM',
+  large: 'explodeL',
+  heavy: 'explodeL',
+  boss: 'explodeBoss',
+};
+
+interface Spark {
+  x: number;
+  y: number;
+  life: number;
+}
 
 /**
  * Owns all live enemies: spawning, updating, player-shot collisions,
@@ -14,6 +32,7 @@ const BAR_H = 4;
 export class EnemyManager {
   readonly list: Enemy[] = [];
   private readonly bars: Phaser.GameObjects.Graphics;
+  private readonly sparks: Spark[] = [];
   /** Called with each enemy killed by the player (score, drops, etc.). */
   onKilled: (e: Enemy) => void = () => {};
   /** Called when a boss enters a new phase. */
@@ -59,7 +78,12 @@ export class EnemyManager {
         const r = e.def.radius + b.radius;
         if (dx * dx + dy * dy <= r * r && e.onScreen) {
           shots.kill(b);
-          if (e.damage(b.damage)) this.kill(e);
+          if (e.damage(b.damage)) {
+            this.kill(e);
+          } else if (!e.shielded) {
+            sfx('hit');
+            this.addSpark(b.x, b.y);
+          }
           break;
         }
       }
@@ -72,7 +96,16 @@ export class EnemyManager {
         this.list.splice(i, 1);
       }
     }
+    for (let i = this.sparks.length - 1; i >= 0; i--) {
+      this.sparks[i].life -= deltaMs;
+      if (this.sparks[i].life <= 0) this.sparks.splice(i, 1);
+    }
     this.drawBars();
+  }
+
+  private addSpark(x: number, y: number): void {
+    if (this.sparks.length >= MAX_SPARKS) this.sparks.shift();
+    this.sparks.push({ x: x + Phaser.Math.Between(-3, 3), y: y - 4, life: SPARK_MS });
   }
 
   /** First enemy whose contact circle overlaps the given circle, if any. */
@@ -107,10 +140,12 @@ export class EnemyManager {
   clear(): void {
     for (const e of this.list) e.destroy();
     this.list.length = 0;
+    this.sparks.length = 0;
     this.bars.clear();
   }
 
   private kill(e: Enemy): void {
+    sfx(DEATH_SOUND[e.def.id]);
     const colour = e.explosionColour;
     this.explode(e.x, e.y, colour);
     for (let i = 0; i < e.def.extraExplosions; i++) {
@@ -121,6 +156,7 @@ export class EnemyManager {
     }
     if (e instanceof Boss) this.scene.cameras.main.shake(900, 0.014);
     else if (e.def.healthBar) this.scene.cameras.main.shake(250, 0.008);
+    else if (e.def.id === 'large') this.scene.cameras.main.shake(120, 0.004);
     this.onKilled(e);
   }
 
@@ -133,6 +169,13 @@ export class EnemyManager {
   private drawBars(): void {
     const g = this.bars;
     g.clear();
+    for (const s of this.sparks) {
+      const k = s.life / SPARK_MS; // 1 → 0
+      const r = Math.round(1 + (1 - k) * 3);
+      g.fillStyle(0xffffff, k);
+      g.fillRect(Math.round(s.x) - r, Math.round(s.y), r * 2 + 1, 1);
+      g.fillRect(Math.round(s.x), Math.round(s.y) - r, 1, r * 2 + 1);
+    }
     for (const e of this.list) {
       if (!e.def.healthBar || e.removed) continue;
       const x = Math.round(e.x - BAR_W / 2);

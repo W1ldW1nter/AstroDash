@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { COLORS, textStyle, type FontSize } from './theme';
+import { sfx } from '../audio/sfx';
 
 export interface MenuItem {
   label: string;
@@ -47,7 +48,7 @@ export class Menu {
         .setOrigin(0.5)
         .setDepth(depth)
         .setInteractive({ useHandCursor: true });
-      t.on('pointerover', () => this.select(i));
+      t.on('pointerover', () => this.move(i));
       t.on('pointerdown', () => this.confirm(i));
       this.texts.push(t);
     });
@@ -59,12 +60,12 @@ export class Menu {
         case 'ArrowUp':
         case 'w':
         case 'W':
-          this.select(this.selected - 1);
+          this.move(this.selected - 1);
           break;
         case 'ArrowDown':
         case 's':
         case 'S':
-          this.select(this.selected + 1);
+          this.move(this.selected + 1);
           break;
         case 'Enter':
         case 'z':
@@ -75,6 +76,7 @@ export class Menu {
         case 'Escape':
         case 'Backspace':
           if (this.armed && opts.onCancel) {
+            sfx('menuBack');
             this.destroy();
             opts.onCancel();
           }
@@ -96,9 +98,18 @@ export class Menu {
     this.cursor.setPosition(t.x - t.width / 2 - 8, t.y);
   }
 
+  /** Selection changed by the player (plays a blip if it actually moved). */
+  private move(i: number): void {
+    if (this.closed) return;
+    const before = this.selected;
+    this.select(i);
+    if (this.selected !== before) sfx('menuMove');
+  }
+
   private confirm(i: number): void {
     if (this.closed || !this.armed) return;
     this.select(i);
+    sfx('menuConfirm');
     const action = this.items[i].action;
     this.destroy();
     action();
